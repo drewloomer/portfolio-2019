@@ -18,6 +18,8 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
+    "gatsby-cli": "^2.5.4",
+    "gatsby-plugin-typescript": "^2.0.11",
     "prettier": "^1.16.4"
   },
   "repository": {
