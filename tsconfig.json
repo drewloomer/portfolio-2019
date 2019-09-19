@@ -1,0 +1,13 @@
+{
+  "transpileOnly": true,
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "es5",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "jsx": "react"
+  }
+}
