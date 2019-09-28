@@ -1,32 +1,86 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
-import colors from '../config/colors';
-import drew from '../assets/drew.jpg';
-import Wrapper from './Wrapper';
+import React, { FC, ButtonHTMLAttributes, MouseEvent } from 'react';
+import styled from '../util/styled-components';
 
-export interface StickyNavProps {
+export interface StickyNavProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  id?: string;
+  controls?: string;
+  className?: string;
   open?: boolean;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = styled.button<StickyNavProps>`
-  display: flex;
-  padding: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+
+  span {
+    align-items: center;
+    display: flex;
+    height: 6rem;
+    justify-content: center;
+    position: relative;
+    transform: rotate(0deg);
+    transition: transform 100ms ease-out 100ms;
+    width: 6rem;
+  }
 
   i {
-    background: ${colors.gray._100};
-    border-radius: 50%;
-    display: block;
-    height: 1rem;
-    width: 1rem;
+    flex: 0 0 auto;
+
+    & {
+      background: ${props => props.theme.colors.gray._100};
+      border-radius: 0.5rem;
+      display: block;
+      height: 1rem;
+      position: relative;
+      transition: transform 100ms ease-out 100ms, opacity 100ms linear 100ms;
+      width: 1rem;
+    }
+
+    &:nth-child(1) {
+      transform: translateX(-0.25rem);
+    }
+
+    &:nth-child(3) {
+      transform: translateX(0.25rem);
+    }
   }
+
+  ${props =>
+    props.open &&
+    `
+    span {
+      transform: rotate(45deg);
+    }
+
+    i {
+      transition: height 100ms ease-out, width 100ms ease-out, transform 100ms ease-out;
+
+      &:nth-child(1) {
+        transform: translate(3.5rem, 0);
+        width: 6rem;
+      }
+
+      &:nth-child(3) {
+        transform: rotate(90deg) translate(0, 3.5rem);
+        width: 6rem;
+      }
+    }
+  `}
 `;
 
-const StickyNavToggle: FC<StickyNavProps> = ({ open }) => {
+const StickyNavToggle: FC<StickyNavProps> = props => {
   return (
-    <Button open={open}>
-      <i />
-      <i />
-      <i />
+    <Button {...props}>
+      <span>
+        <i />
+        <i />
+        <i />
+      </span>
     </Button>
   );
 };

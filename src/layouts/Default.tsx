@@ -1,6 +1,10 @@
 import React, { ReactNode, FC, Fragment } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, {
+  createGlobalStyle,
+  ThemeProvider
+} from '../util/styled-components';
 import StickyNav from '../components/StickyNav';
+import theme from '../config/theme';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text|Raleway&display=swap');
@@ -10,28 +14,30 @@ html {
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: ${props => props.theme.fonts.primary};
   font-size: 2rem;
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 `;
 
-const Main = styled.main`
-  padding: 1rem;
-`;
+const Main = styled.main``;
 
 export interface LayoutProps {
   children: ReactNode;
 }
 
 const DefaultLayout: FC<LayoutProps> = ({ children }) => (
-  <Fragment>
-    <GlobalStyle />
-    <Main>
-      <StickyNav />
-      {children}
-    </Main>
-  </Fragment>
+  <ThemeProvider theme={theme}>
+    <Fragment>
+      <GlobalStyle />
+      <Main>
+        <StickyNav />
+        {children}
+      </Main>
+    </Fragment>
+  </ThemeProvider>
 );
 
 export default DefaultLayout;
