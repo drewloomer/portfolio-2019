@@ -27,11 +27,13 @@ const List = styled.ul<StickyNavMenuProps>`
   width: 100%;
 `;
 const ListItem = styled.li`
+  font-family: ${props => props.theme.fonts.secondary};
   font-size: 3rem;
   line-height: 1.5;
   list-style-type: none;
   margin-bottom: 2rem;
   text-align: center;
+  text-decoration: underline;
   transition: transform 100ms ease-out;
 
   &:nth-child(1) {
@@ -42,12 +44,17 @@ const ListItem = styled.li`
     margin-bottom: 6rem;
   }
 `;
+const ListLink = styled.a`
+  color: inherit;
+`;
 
 const StickyNavMenu: FC<StickyNavMenuProps> = ({ items, ...props }) => {
   return (
     <List as="ul" {...props}>
       {items.map(i => (
-        <ListItem>{i.text}</ListItem>
+        <ListItem>
+          <ListLink href={i.link}>{i.text}</ListLink>
+        </ListItem>
       ))}
     </List>
   );

@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled from '../util/styled-components';
 import drew from '../assets/drew.jpg';
 import Wrapper from './Wrapper';
 import StickyNavToggle from './StickyNavToggle';
@@ -40,6 +40,7 @@ const items: NavItem[] = [
   }
 ];
 const Nav = styled.nav<{ open: boolean; fixed: boolean }>`
+  background: ${props => props.theme.colors.gray._1000};
   box-shadow: ${props =>
     props.open || !props.fixed ? `none` : props.theme.shadows.box};
   left: 0;
@@ -61,10 +62,10 @@ const StyledToggle = styled(StickyNavToggle)`
 `;
 const BannerWrapper = styled(Wrapper)`
   align-items: center;
-  background: ${props => props.theme.colors.gray._1000};
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
   position: relative;
   width: 100%;
   z-index: 5;
@@ -91,11 +92,18 @@ const StickyNav: FC<StickyNavProps> = () => {
         <StyledToggle
           open={open}
           onClick={() => setOpen(!open)}
+          id="menuToggle"
           aria-haspopup="true"
           aria-controls="navMenu"
         />
       </BannerWrapper>
-      <StickyNavMenu items={items} open={open} role="menu" id="navMenu" />
+      <StickyNavMenu
+        items={items}
+        open={open}
+        role="menu"
+        id="navMenu"
+        aria-labelledby="menuToggle"
+      />
     </Nav>
   );
 };

@@ -54,11 +54,12 @@ const Button = styled.button<StickyNavProps>`
     props.open &&
     `
     span {
-      transform: rotate(45deg);
+      transform: rotate(135deg) scale(.5);
     }
 
     i {
       transition: height 100ms ease-out, width 100ms ease-out, transform 100ms ease-out;
+      transition-delay: 100ms;
 
       &:nth-child(1) {
         transform: translate(3.5rem, 0);

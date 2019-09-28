@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>icon/phone</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15.12,11.0044444 C14.0266667,11.0044444 12.9688889,10.8266667 11.9822222,10.5066667 C11.6711111,10.4 11.3244444,10.48 11.0844444,10.72 L9.68888889,12.4711111 C7.17333333,11.2711111 4.81777778,9.00444444 3.56444444,6.4 L5.29777778,4.92444444 C5.53777778,4.67555556 5.60888889,4.32888889 5.51111111,4.01777778 C5.18222222,3.03111111 5.01333333,1.97333333 5.01333333,0.88 C5.01333333,0.4 4.61333333,0 4.13333333,0 L1.05777778,0 C0.577777778,0 0,0.213333333 0,0.88 C0,9.13777778 6.87111111,16 15.12,16 C15.7511111,16 16,15.44 16,14.9511111 L16,11.8844444 C16,11.4044444 15.6,11.0044444 15.12,11.0044444 Z" id="path-1"></path>
+    </defs>
+    <g id="icon/phone" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="swatch/black">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#496E9B" fill-rule="nonzero" xlink:href="#path-1"></use>
+            <g mask="url(#mask-2)" fill="#000000" id="Rectangle">
+                <g transform="translate(-2.000000, -2.000000)">
+                    <rect x="0" y="0" width="20" height="20"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
