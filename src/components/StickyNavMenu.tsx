@@ -1,10 +1,11 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes, ComponentClass } from 'react';
 import styled from '../util/styled-components';
-import Wrapper from './Wrapper';
+import Icon from './Icon';
+import theme from '../config/theme';
 
 export interface NavItem {
   text: string;
-  logo: string;
+  icon: ComponentClass;
   link: string;
 }
 
@@ -46,18 +47,30 @@ const ListItem = styled.li`
 `;
 const ListLink = styled.a`
   color: inherit;
+  display: flex;
+  justify-content: center;
+`;
+const ListIcon = styled(Icon)`
+  height: 2rem;
+  margin-right: 1rem;
 `;
 
-const StickyNavMenu: FC<StickyNavMenuProps> = ({ items, ...props }) => {
-  return (
-    <List as="ul" {...props}>
-      {items.map(i => (
-        <ListItem>
-          <ListLink href={i.link}>{i.text}</ListLink>
+const StickyNavMenu: FC<StickyNavMenuProps> = ({ items, ...props }) => (
+  <List as="ul" {...props}>
+    {items.map(({ link, text, icon }, i) => {
+      const SVG = icon;
+      return (
+        <ListItem key={i}>
+          <ListLink href={link}>
+            <ListIcon color={theme.colors.gray._700}>
+              <SVG />
+            </ListIcon>
+            {text}
+          </ListLink>
         </ListItem>
-      ))}
-    </List>
-  );
-};
+      );
+    })}
+  </List>
+);
 
 export default StickyNavMenu;

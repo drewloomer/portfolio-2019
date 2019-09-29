@@ -6,6 +6,21 @@ module.exports = {
       resolve: 'gatsby-plugin-typescript',
       options: tsconfig
     },
+    {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        template: require('./scripts/svgr-template'),
+        icon: true,
+        replaceAttrValues: {
+          '#000': 'currentColor'
+        },
+        svgoConfig: {
+          plugins: {
+            removeViewBox: false
+          }
+        }
+      }
+    },
     `gatsby-plugin-styled-components`
   ],
   siteMetadata: {

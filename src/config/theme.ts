@@ -9,12 +9,15 @@ export interface Theme {
   padding: List;
 }
 
-const theme = (): Theme => ({
+const theme: Theme = {
   colors: {
     gray: {
       _100: '#3B4045',
       _700: '#ccc',
       _1000: '#fff'
+    },
+    blue: {
+      _400: '#496E9B'
     }
   },
   fonts: {
@@ -27,6 +30,6 @@ const theme = (): Theme => ({
   shadows: {
     box: '0 1px 3px 0 rgba(172,172,172,0.50)'
   }
-});
+};
 
 export default theme;
