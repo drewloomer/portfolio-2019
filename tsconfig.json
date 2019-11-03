@@ -8,6 +8,7 @@
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "noImplicitAny": true,
+    "types": ["jest"],
     "jsx": "react"
   }
 }

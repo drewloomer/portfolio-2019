@@ -9,6 +9,8 @@ import LinkedIn from '../assets/icon/linkedin.svg';
 import Twitter from '../assets/icon/twitter.svg';
 import GitHub from '../assets/icon/github.svg';
 import Medium from '../assets/icon/medium.svg';
+import { Breakpoint } from '../config/theme';
+import { breakpoint } from '../util/breakpoint';
 
 export interface StickyNavProps {}
 
@@ -49,48 +51,63 @@ const Nav = styled.nav`
 `;
 const Drew = styled.img<{ open: boolean; fixed: boolean }>`
   border-radius: 50%;
-  height: ${props => (props.open || props.fixed ? '4rem' : '7rem')};
+  height: 7rem;
   overflow: hidden;
   position: relative;
   transition: height 100ms ease-out, width 100ms ease-out;
   will-change: height, width;
-  width: ${props => (props.open || props.fixed ? '4rem' : '7rem')};
+  width: 7rem;
+
+  ${breakpoint(0, Breakpoint.Small)`
+      height: ${p => (p.open || p.fixed ? '4rem' : '7rem')};
+      width: ${p => (p.open || p.fixed ? '4rem' : '7rem')};
+  `}
 `;
 const StyledToggle = styled(StickyNavToggle)`
   justify-self: flex-end;
   margin: -2rem;
 `;
+const FixedWrapper = styled.div<{ open: boolean; fixed: boolean }>`
+  background: ${props =>
+    props.open || props.fixed ? props.theme.colors.gray._1000 : 'transparent'};
+  box-shadow: ${props =>
+    props.open || !props.fixed ? `none` : props.theme.shadows.box};
+
+  will-change: box-shadow;
+  z-index: 100;
+
+  ${breakpoint(0, Breakpoint.Small)`
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  `}
+`;
 const BannerWrapper = styled.div<{ open: boolean; fixed: boolean }>`
   align-items: center;
-  background-color: ${props => props.theme.colors.gray._1000};
-  border-top: 0.5rem solid ${props => props.theme.colors.blue._400};
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  padding: ${props =>
-    props.open || props.fixed ? '1rem 3rem 1rem 2rem' : '3rem'};
+  max-width: 86rem;
+  padding: 3rem;
   position: relative;
   transition: padding 100ms ease-out;
-  width: 100%;
   will-change: padding;
   z-index: 5;
-`;
-const FixedWrapper = styled.div<{ open: boolean; fixed: boolean }>`
-  background: ${props => props.theme.colors.gray._1000};
-  box-shadow: ${props =>
-    props.open || !props.fixed ? `none` : props.theme.shadows.box};
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  will-change: box-shadow;
-  z-index: 100;
+
+  ${breakpoint(0, Breakpoint.Small)`
+    padding: ${props =>
+      props.open || props.fixed
+        ? `1rem ${props.theme.padding.sm} 1rem ${props.theme.padding.sm}`
+        : `${props.theme.padding.sm}`};
+    width: 100%;
+  `}
 `;
 
 export const checkFixed = (setFixed: (fixed: boolean) => void) => () => {
   const check = (): void => {
-    setFixed(window.scrollY > 1);
+    setFixed(window.scrollY > 24); // @todo: make this dynamic
   };
   document.addEventListener('scroll', check);
   return () => {
@@ -114,14 +131,14 @@ const StickyNav: FC<StickyNavProps> = () => {
             aria-haspopup="true"
             aria-controls="navMenu"
           />
+          <StickyNavMenu
+            items={items}
+            open={open}
+            role="menu"
+            id="navMenu"
+            aria-labelledby="menuToggle"
+          />
         </BannerWrapper>
-        <StickyNavMenu
-          items={items}
-          open={open}
-          role="menu"
-          id="navMenu"
-          aria-labelledby="menuToggle"
-        />
       </FixedWrapper>
     </Nav>
   );

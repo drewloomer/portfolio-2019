@@ -16,6 +16,8 @@ const Button = styled.button<StickyNavProps>`
   cursor: pointer;
   overflow: hidden;
   padding: 0;
+  position: relative;
+  z-index: 5;
 
   span {
     align-items: center;

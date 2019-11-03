@@ -1,7 +1,8 @@
 import React, { FC, HTMLAttributes, ComponentClass } from 'react';
 import styled from '../util/styled-components';
 import Icon from './Icon';
-import theme from '../config/theme';
+import theme, { Breakpoint } from '../config/theme';
+import { breakpoint } from '../util/breakpoint';
 
 export interface NavItem {
   text: string;
@@ -18,14 +19,25 @@ const List = styled.ul<StickyNavMenuProps>`
   background: ${props => props.theme.colors.gray._1000};
   box-shadow: ${props => props.theme.shadows.box};
   box-sizing: border-box;
-  left: 0;
   margin: 0;
-  max-height: ${props => (props.open ? '60rem' : '0')};
   overflow: hidden;
   padding: 0 ${props => props.theme.padding.sm};
   position: absolute;
-  transition: max-height 150ms ease-out;
-  width: 100%;
+
+  ${breakpoint(0, Breakpoint.Small)`
+    left: 0;
+    max-height: ${props => (props.open ? '60rem' : '0')};
+    transition: max-height 150ms ease-out;
+    width: 100%;
+  `}
+
+  ${breakpoint(Breakpoint.Medium)`
+    right: 0;
+    left: auto;
+    top: 2rem;
+    padding-top: 10rem;
+    z-index: 0;
+  `}
 `;
 const ListItem = styled.li`
   font-family: ${props => props.theme.fonts.secondary};
@@ -42,7 +54,9 @@ const ListItem = styled.li`
   }
 
   &:last-child {
-    margin-bottom: 6rem;
+    ${breakpoint(0, Breakpoint.Small)`
+      margin-bottom: 6rem;
+    `}
   }
 `;
 const ListLink = styled.a`

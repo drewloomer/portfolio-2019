@@ -2,11 +2,17 @@ export interface List<T = string> {
   [key: string]: T;
 }
 
+export enum Breakpoint {
+  Small = 0,
+  Medium = 688,
+  Large = 1280
+}
+
 export interface Theme {
   colors: List<List>;
   fonts: List;
-  shadows: List;
   padding: List;
+  shadows: List;
 }
 
 const theme: Theme = {
