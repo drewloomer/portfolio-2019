@@ -1,20 +1,13 @@
-function template({ template }, opts, { componentName, jsx }) {
+function template({ template }, _, { componentName, jsx }) {
   const typeScriptTpl = template.smart({ plugins: ['typescript'] });
-  console.log(
-    // componentName,
-    jsx
-    //     `
-    //   import React, { SVGProps } from 'react';
-    //   // const ${componentName} = (props: SVGProps<SVGSVGElement>)
-    //   const ${componentName} = (props) => ${jsx};
-    //   export default ${componentName};
-    // `
-  );
+  const ComponentName = componentName.name
+    .replace(/^Svg/, '')
+    .replace(/\(|\)/g, '')
+    .replace(/\s+/g, '');
   return typeScriptTpl.ast`
-    import React, { SVGProps } from 'react';
-    // const ${componentName} = (props: SVGProps<SVGSVGElement>)
-    const ${componentName} = (props) => ${jsx};
-    export default ${componentName};
+    import React from 'react';
+    const ${ComponentName}: React.FC<React.SVGProps<SVGSVGElement>> = (props) => ${jsx};
+    export default ${ComponentName};
   `;
 }
 module.exports = template;

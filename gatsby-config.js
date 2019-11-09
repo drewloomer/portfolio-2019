@@ -14,6 +14,9 @@ module.exports = {
         replaceAttrValues: {
           '#000': 'currentColor'
         },
+        prettierConfig: {
+          parser: ['typescript']
+        },
         svgoConfig: {
           plugins: {
             removeViewBox: false
