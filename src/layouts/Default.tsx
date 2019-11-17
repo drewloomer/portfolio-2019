@@ -1,4 +1,5 @@
 import React, { ReactNode, FC, Fragment } from 'react';
+import { Reset } from 'styled-reset';
 import styled, {
   createGlobalStyle,
   ThemeProvider
@@ -31,6 +32,7 @@ export interface LayoutProps {
 const DefaultLayout: FC<LayoutProps> = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Fragment>
+      <Reset />
       <GlobalStyle />
       <Main>
         <StickyNav />

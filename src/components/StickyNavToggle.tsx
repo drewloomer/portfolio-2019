@@ -78,7 +78,7 @@ const Button = styled.button<StickyNavProps>`
 
 const StickyNavToggle: FC<StickyNavProps> = props => {
   return (
-    <Button {...props}>
+    <Button {...props} title={`${props.open ? 'Close' : 'Open'} Main Menu`}>
       <span>
         <i />
         <i />

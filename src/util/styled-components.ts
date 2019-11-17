@@ -1,4 +1,5 @@
 import * as styledComponents from 'styled-components';
+import { ThemeProps, Keyframes } from 'styled-components';
 
 import { Theme } from '../config/theme';
 
@@ -10,5 +11,12 @@ const {
   ThemeProvider
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<Theme>;
 
-export { css, createGlobalStyle, keyframes, ThemeProvider };
+export {
+  css,
+  createGlobalStyle,
+  keyframes,
+  ThemeProvider,
+  ThemeProps,
+  Keyframes
+};
 export default styled;

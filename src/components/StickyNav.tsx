@@ -1,15 +1,23 @@
-import React, { FC, useState, useEffect } from 'react';
-import styled from '../util/styled-components';
-import drew from '../assets/drew.jpg';
+import React, {
+  FC,
+  useState,
+  useLayoutEffect,
+  useRef,
+  MutableRefObject,
+  useEffect,
+  DependencyList
+} from 'react';
+import styled, { keyframes, css, ThemeProps } from '../util/styled-components';
 import StickyNavToggle from './StickyNavToggle';
 import StickyNavMenu, { NavItem } from './StickyNavMenu';
+import Drew from './Drew';
 import Briefcase from '../assets/icon/briefcase.svg';
 import Contact from '../assets/icon/contact.svg';
 import LinkedIn from '../assets/icon/linkedin.svg';
 import Twitter from '../assets/icon/twitter.svg';
 import GitHub from '../assets/icon/github.svg';
 import Medium from '../assets/icon/medium.svg';
-import { Breakpoint } from '../config/theme';
+import { Breakpoint, Theme } from '../config/theme';
 import { breakpoint } from '../util/breakpoint';
 
 export interface StickyNavProps {}
@@ -46,41 +54,61 @@ const items: NavItem[] = [
     link: 'https://medium.com/@drewloomer'
   }
 ];
-const Nav = styled.nav`
-  padding-bottom: 13.5rem;
+const Nav = styled.nav<{ open: boolean; fixed: boolean }>`
+  ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
+    ${props =>
+      props.open || props.fixed
+        ? `
+      padding-bottom: 13.5rem;
+    `
+        : ``};
+  `}
 `;
-const Drew = styled.img<{ open: boolean; fixed: boolean }>`
-  border-radius: 50%;
-  height: 7rem;
-  overflow: hidden;
-  position: relative;
-  transition: height 100ms ease-out, width 100ms ease-out;
-  will-change: height, width;
-  width: 7rem;
-
-  ${breakpoint(0, Breakpoint.Small)`
-      height: ${p => (p.open || p.fixed ? '4rem' : '7rem')};
-      width: ${p => (p.open || p.fixed ? '4rem' : '7rem')};
+const DrewImg = styled(Drew)<{ open: boolean; fixed: boolean }>`
+  height: ${p => (p.open || p.fixed ? '4rem' : '7rem')};
+  ${p => (p.fixed ? 'transition: none;' : '')}
+  width: ${p => (p.open || p.fixed ? '4rem' : '7rem')};
+  ${breakpoint(Breakpoint.Medium)`
+    visibility: hidden;
   `}
 `;
 const StyledToggle = styled(StickyNavToggle)`
   justify-self: flex-end;
   margin: -2rem;
 `;
+const slideIn = keyframes`
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+`;
+const animateWrapper = (_: ThemeProps<Theme>) => css`
+  ${slideIn} 500ms ease-out;
+`;
 const FixedWrapper = styled.div<{ open: boolean; fixed: boolean }>`
-  background: ${props =>
-    props.open || props.fixed ? props.theme.colors.gray._1000 : 'transparent'};
-  box-shadow: ${props =>
-    props.open || !props.fixed ? `none` : props.theme.shadows.box};
-
-  will-change: box-shadow;
-  z-index: 100;
-
-  ${breakpoint(0, Breakpoint.Small)`
-    left: 0;
-    position: fixed;
-    top: 0;
+  ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
+    animation: ${animateWrapper};
+    background: transparent;
+    box-shadow: ${props =>
+      props.open || !props.fixed ? `none` : props.theme.shadows.box};
     width: 100%;
+    will-change: box-shadow;
+    z-index: 100;
+
+    ${props =>
+      props.open || props.fixed
+        ? `
+      animation: ${animateWrapper};
+      animation-delay: 1000ms;
+      background: ${props.theme.colors.gray._1000};
+      left: 0;
+      position: fixed;
+      top: 0;
+    `
+        : ``};
   `}
 `;
 const BannerWrapper = styled.div<{ open: boolean; fixed: boolean }>`
@@ -105,25 +133,66 @@ const BannerWrapper = styled.div<{ open: boolean; fixed: boolean }>`
   `}
 `;
 
-export const checkFixed = (setFixed: (fixed: boolean) => void) => () => {
+export const useScrollPosition = (deps: DependencyList = []) => {
+  const [[x, y], setPosition] = useState([window.scrollX, window.scrollY]);
   const check = (): void => {
-    setFixed(window.scrollY > 24); // @todo: make this dynamic
+    setPosition([window.scrollX, window.scrollY]); // @todo: make this dynamic
   };
-  document.addEventListener('scroll', check);
-  return () => {
-    document.removeEventListener('scroll', check);
-  };
+  useLayoutEffect(() => {
+    document.addEventListener('scroll', check);
+    return () => {
+      document.removeEventListener('scroll', check);
+    };
+  }, deps);
+  return [x, y];
+};
+
+export const useRefDimensions = (
+  ref: MutableRefObject<HTMLElement>,
+  deps: DependencyList
+) => {
+  const [[width, height], setDimensions] = useState([0, 0]);
+  useLayoutEffect(() => {
+    setDimensions([ref.current.clientWidth, ref.current.clientHeight]);
+  }, deps);
+  return [width, height];
+};
+
+export const useScrolledBack = (deps: DependencyList = []) => {
+  const [scrollHistory, setScrollHistory] = useState<number[]>([]);
+  const [isScrolledBack, setIsScrolledBack] = useState<boolean>();
+  const [_, y] = useScrollPosition(deps);
+  useEffect(() => {
+    setScrollHistory(scrollHistory.concat([y]).slice(-5));
+    setIsScrolledBack(
+      scrollHistory.reverse().reduce((acc: boolean, cur, i, arr) => {
+        const next = arr[i + 1];
+        if (next === undefined) return acc;
+        return acc !== false && cur < next;
+      }, null)
+    );
+  }, [y, ...deps]);
+  return isScrolledBack;
+};
+
+export const useFixedOnScrollBack = (
+  ref: MutableRefObject<HTMLElement>
+): boolean => {
+  const [_, y] = useScrollPosition();
+  const [__, height] = useRefDimensions(ref, [y]);
+  const scrolledBack = useScrolledBack();
+  return y > height && scrolledBack;
 };
 
 const StickyNav: FC<StickyNavProps> = () => {
+  const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [fixed, setFixed] = useState(false);
-  useEffect(checkFixed(setFixed));
+  const fixed = useFixedOnScrollBack(ref);
   return (
-    <Nav>
-      <FixedWrapper open={open} fixed={fixed}>
+    <Nav open={open} fixed={fixed}>
+      <FixedWrapper open={open} fixed={fixed} ref={ref}>
         <BannerWrapper open={open} fixed={fixed}>
-          <Drew src={drew} open={open} fixed={fixed} />
+          <DrewImg open={open} fixed={fixed} />
           <StyledToggle
             open={open}
             onClick={() => setOpen(!open)}

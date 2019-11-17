@@ -1,8 +1,10 @@
 import React from 'react';
 import DefaultLayout from '../layouts/Default';
+import Masthead from '../components/Masthead';
 
 export default () => (
   <DefaultLayout>
+    <Masthead />
     Est velit Lorem sint sit elit. Id tempor sit occaecat eu est esse aliquip
     quis et. Ut consectetur ex nostrud anim irure esse amet ipsum tempor in
     reprehenderit aliqua. Mollit labore eiusmod ex dolore consequat cupidatat

@@ -24,9 +24,10 @@ const List = styled.ul<StickyNavMenuProps>`
   padding: 0 ${props => props.theme.padding.sm};
   position: absolute;
 
-  ${breakpoint(0, Breakpoint.Small)`
+  ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
     left: 0;
     max-height: ${props => (props.open ? '60rem' : '0')};
+    top: 100%;
     transition: max-height 150ms ease-out;
     width: 100%;
   `}
@@ -34,8 +35,11 @@ const List = styled.ul<StickyNavMenuProps>`
   ${breakpoint(Breakpoint.Medium)`
     right: 0;
     left: auto;
+    max-height: ${props => (props.open ? '60rem' : '0')};
     top: 2rem;
     padding-top: 10rem;
+    opacity: ${props => (props.open ? '1' : '0')};
+    transition: max-height 150ms ease-out, opacity 100ms linear;
     z-index: 0;
   `}
 `;
@@ -54,15 +58,17 @@ const ListItem = styled.li`
   }
 
   &:last-child {
-    ${breakpoint(0, Breakpoint.Small)`
-      margin-bottom: 6rem;
-    `}
+    margin-bottom: 6rem;
   }
 `;
 const ListLink = styled.a`
   color: inherit;
   display: flex;
   justify-content: center;
+
+  ${breakpoint(Breakpoint.Medium)`
+    padding: 0 5rem;
+  `}
 `;
 const ListIcon = styled(Icon)`
   height: 2rem;
