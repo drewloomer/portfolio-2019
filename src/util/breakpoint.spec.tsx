@@ -43,19 +43,24 @@ export const expectCSSMatches = (
 };
 
 describe('Breakpoint Utility', () => {
-  it('should target a minimum breakpoint', () => {
-    const result = breakpoint(400)`asdf`({});
-    expect(result).toContain('@media (min-width: 400px) { asdf }');
+  it.only('should target a minimum breakpoint', () => {
+    const Component = styled.div`
+      ${breakpoint(400)`
+        asdf
+      `}
+    `;
+    TestRenderer.create(<Component />);
+    expectCSSMatches('@media (min-width:400px) { asdf }');
   });
 
-  it('should target a range of breakpoints', () => {
+  it.only('should target a range of breakpoints', () => {
     const result = breakpoint(400, 600)`asdf`({});
     expect(result).toContain(
       '@media (min-width: 400px) and (max-width: 599px) { asdf }'
     );
   });
 
-  it('should parse props', () => {
+  it.only('should parse props', () => {
     const result = breakpoint(400, 600)`display: ${p =>
       p.bool ? 'block' : 'none'}; color: ${'red'};`({ bool: false });
     const result2 = breakpoint(400, 600)`display: ${p =>
@@ -79,7 +84,7 @@ describe('Breakpoint Utility', () => {
     expectCSSMatches('color:red;');
   });
 
-  it.only('should work within a styled component with keyframes', () => {
+  it('should work within a styled component with keyframes', () => {
     const changeColor = keyframes`
       0% {
         color: red;

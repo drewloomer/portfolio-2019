@@ -27,8 +27,9 @@ export const breakpoint = (
       to !== undefined ? `) and (max-width: ${to - 1}px` : ''
     }) { `;
     const newRaw = [query, ...raw, '}'];
+    const newPlaceholders = ['', ...placeholders, ''];
     // @ts-ignore
-    return css(newRaw, ...placeholders);
+    return css(newRaw, ...newPlaceholders);
     // placeholders.reduce((acc: string, p: string | Function, i) => {
     //   if (typeof p === 'function') {
     //     const res = p(props);
