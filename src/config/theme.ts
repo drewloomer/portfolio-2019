@@ -19,6 +19,7 @@ const theme: Theme = {
   colors: {
     gray: {
       _100: '#3B4045',
+      _200: '#586678',
       _700: '#ccc',
       _1000: '#fff'
     },

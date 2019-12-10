@@ -6,15 +6,38 @@ import Drew from './Drew';
 import Wrapper from './Wrapper';
 import { Heading, Content } from './Text';
 
-const Section = styled.section``;
+const Section = styled.section`
+  margin-top: -1rem;
+
+  ${breakpoint(Breakpoint.Medium, Breakpoint.Large)`
+    margin-top: -8rem;
+  `}
+`;
+
 const DrewImg = styled(Drew)`
   ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
     display: none;
   `}
+
+  ${breakpoint(Breakpoint.Medium)`
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+  `}
 `;
-const H1 = Heading(styled.h1``);
-const P = Content(styled.p``);
-const Tagline = styled.i``;
+
+const H1 = Heading(styled.h1`
+  align-items: center;
+  display: flex;
+  margin-bottom: 3rem;
+`);
+
+const P = Content(styled.p`
+  margin-bottom: 2rem;
+`);
+
+const Tagline = styled.i`
+  font-style: italic;
+`;
 
 export interface MastheadProps {
   className?: string;

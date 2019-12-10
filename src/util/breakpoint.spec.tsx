@@ -43,48 +43,41 @@ export const expectCSSMatches = (
 };
 
 describe('Breakpoint Utility', () => {
-  it.only('should target a minimum breakpoint', () => {
+  it('should target a minimum breakpoint', () => {
     const Component = styled.div`
       ${breakpoint(400)`
         asdf
       `}
     `;
     TestRenderer.create(<Component />);
-    expectCSSMatches('@media (min-width:400px) { asdf }');
+    expectCSSMatches('@media (min-width:400px)');
+    expectCSSMatches('asdf');
   });
 
-  it.only('should target a range of breakpoints', () => {
-    const result = breakpoint(400, 600)`asdf`({});
-    expect(result).toContain(
-      '@media (min-width: 400px) and (max-width: 599px) { asdf }'
-    );
-  });
-
-  it.only('should parse props', () => {
-    const result = breakpoint(400, 600)`display: ${p =>
-      p.bool ? 'block' : 'none'}; color: ${'red'};`({ bool: false });
-    const result2 = breakpoint(400, 600)`display: ${p =>
-      p.bool ? 'block' : 'none'};`({ bool: true });
-    expect(result).toContain(
-      '@media (min-width: 400px) and (max-width: 599px) { display: none; color: red; }'
-    );
-    expect(result2).toContain(
-      '@media (min-width: 400px) and (max-width: 599px) { display: block; }'
-    );
-  });
-
-  it('should work within a styled component', () => {
+  it('should target a range of breakpoints', () => {
     const Component = styled.div`
       ${breakpoint(400, 600)`
-        color: red;
+        asdf
       `}
     `;
     TestRenderer.create(<Component />);
-    expectCSSMatches('@media (min-width:400px) and (max-width:599px)');
-    expectCSSMatches('color:red;');
+    expectCSSMatches('@media (min-width:400px) and (max-width: 599px)');
+    expectCSSMatches('asdf');
   });
 
-  it('should work within a styled component with keyframes', () => {
+  it('should parse props', () => {
+    const Component = styled.div<{ bool?: boolean }>`
+      ${breakpoint(400, 600)`display: ${p =>
+        p.bool ? 'block' : 'none'}; color: ${'red'};`}
+    `;
+    TestRenderer.create(<Component />);
+    TestRenderer.create(<Component bool={true} />);
+    expectCSSMatches('@media (min-width:400px) and (max-width: 599px)');
+    expectCSSMatches('display: none; color: red;');
+    expectCSSMatches('display: block; color: red;');
+  });
+
+  it('should work with keyframes', () => {
     const changeColor = keyframes`
       0% {
         color: red;
@@ -104,6 +97,6 @@ describe('Breakpoint Utility', () => {
     `;
     TestRenderer.create(<Component />);
     expectCSSMatches('@media (min-width:400px) and (max-width:599px)');
-    expectCSSMatches('keyframes: ');
+    expectCSSMatches('animation: ');
   });
 });

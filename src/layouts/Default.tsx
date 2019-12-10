@@ -4,7 +4,7 @@ import styled, {
   createGlobalStyle,
   ThemeProvider
 } from '../util/styled-components';
-import StickyNav from '../components/StickyNav';
+import StickyNav from '../components/StickyNav/StickyNav';
 import theme from '../config/theme';
 
 const GlobalStyle = createGlobalStyle`
