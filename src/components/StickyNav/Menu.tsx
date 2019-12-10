@@ -68,7 +68,7 @@ const ListItem = styled.li`
     margin-bottom: 6rem;
   }
 
-  ${breakpoint(Breakpoint.Large)`
+  ${breakpoint(Breakpoint.Medium)`
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
   `}
@@ -95,7 +95,7 @@ const ListIcon = styled(Icon)`
   height: 2rem;
   margin-right: 1rem;
 
-  ${breakpoint(Breakpoint.Large)`
+  ${breakpoint(Breakpoint.Medium)`
     height: 1.5rem;
     margin-right: .75rem;
   `}

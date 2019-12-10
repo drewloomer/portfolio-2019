@@ -20,7 +20,9 @@ const theme: Theme = {
     gray: {
       _100: '#3B4045',
       _200: '#586678',
+      _400: '#979797',
       _700: '#ccc',
+      _900: '#fbfbfb',
       _1000: '#fff'
     },
     blue: {
@@ -32,7 +34,8 @@ const theme: Theme = {
     secondary: "'Crimson Text', serif"
   },
   padding: {
-    sm: '3rem'
+    sm: '3rem',
+    md: '6rem'
   },
   shadows: {
     box: '0 1px 3px 0 rgba(172,172,172,0.50)'

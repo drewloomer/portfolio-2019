@@ -16,7 +16,7 @@ export interface DrewProps {
   className?: string;
 }
 
-const Drew: FC<DrewProps> = props => (
+export const Drew: FC<DrewProps> = props => (
   <Img src={drew} {...props} alt="Headshot of Drew Loomer" />
 );
 

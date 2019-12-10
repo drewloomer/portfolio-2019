@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import styled from '../util/styled-components';
 import { Breakpoint } from '../config/theme';
 import { breakpoint } from '../util/breakpoint';
-import Drew from './Drew';
-import Wrapper from './Wrapper';
+import { Drew } from './Drew';
+import { Wrapper } from './Wrapper';
 import { Heading, Content } from './Text';
 
 const Section = styled.section`
@@ -20,20 +20,21 @@ const DrewImg = styled(Drew)`
   `}
 
   ${breakpoint(Breakpoint.Medium)`
-    margin-bottom: 2rem;
     margin-right: 2rem;
   `}
 `;
 
-const H1 = Heading(styled.h1`
+const H1 = styled(Heading)`
   align-items: center;
   display: flex;
   margin-bottom: 3rem;
-`);
 
-const P = Content(styled.p`
-  margin-bottom: 2rem;
-`);
+  ${breakpoint(Breakpoint.Medium)`
+    margin-bottom: 2rem;
+  `}
+`;
+
+const P = styled(Content)``;
 
 const Tagline = styled.i`
   font-style: italic;
@@ -43,7 +44,7 @@ export interface MastheadProps {
   className?: string;
 }
 
-const Masthead: FC<MastheadProps> = props => (
+export const Masthead: FC<MastheadProps> = props => (
   <Section {...props}>
     <Wrapper>
       <H1>
