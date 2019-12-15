@@ -1,8 +1,8 @@
 import React from 'react';
 import DefaultLayout from '../layouts/Default';
-import { Masthead } from '../components/Masthead';
-import { Approach } from '../components/Approach';
-import { Tools } from '../components/Tools';
+import { Masthead } from '../components/Masthead/Masthead';
+import { Approach } from '../components/Approach/Approach';
+import { Tools } from '../components/Tools/Tools';
 
 export default () => (
   <DefaultLayout>

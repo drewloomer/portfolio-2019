@@ -1,10 +1,25 @@
 import React, { ReactNode, forwardRef } from 'react';
 import styled from '../../util/styled-components';
 import { Breakpoint } from '../../config/theme';
+import posed from 'react-pose';
 import { breakpoint } from '../../util/breakpoint';
 import { Consumer, StickyNavContext } from './Context';
 
-export const WrapperEl = styled.div<StickyNavContext>`
+export const WrapperEl = styled(
+  posed.div({
+    fixed: {
+      y: '0',
+      transition: {
+        y: {
+          from: '-100%',
+          to: '0',
+          ease: 'easeOut',
+          duration: 250
+        }
+      }
+    }
+  })
+)<StickyNavContext>`
   align-items: center;
   box-sizing: border-box;
   display: flex;
@@ -28,7 +43,11 @@ export const Wrapper = forwardRef<HTMLDivElement, { children: ReactNode }>(
   ({ children }, ref) => (
     <Consumer>
       {context => (
-        <WrapperEl {...context} ref={ref}>
+        <WrapperEl
+          {...context}
+          ref={ref}
+          pose={context.fixed ? 'fixed' : 'unfixed'}
+        >
           {children}
         </WrapperEl>
       )}

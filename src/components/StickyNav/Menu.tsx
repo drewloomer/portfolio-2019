@@ -5,15 +5,54 @@ import theme, { Breakpoint } from '../../config/theme';
 import { breakpoint } from '../../util/breakpoint';
 import { Consumer, StickyNavContext } from './Context';
 
+import Briefcase from '../../assets/icon/briefcase.svg';
+import Contact from '../../assets/icon/contact.svg';
+import LinkedIn from '../../assets/icon/linkedin.svg';
+import Twitter from '../../assets/icon/twitter.svg';
+import GitHub from '../../assets/icon/github.svg';
+import Medium from '../../assets/icon/medium.svg';
+
 export interface NavItem {
   text: string;
   icon: ComponentClass;
   link: string;
 }
 
-export interface StickyNavMenuProps extends HTMLAttributes<HTMLUListElement> {
-  items?: NavItem[];
-}
+export interface StickyNavMenuProps extends HTMLAttributes<HTMLUListElement> {}
+
+// @todo: move this to graphQL
+const items: NavItem[] = [
+  {
+    text: 'Resume',
+    icon: Briefcase,
+    link: '#resume'
+  },
+  {
+    text: 'Contact',
+    icon: Contact,
+    link: '#contact'
+  },
+  {
+    text: 'LinkedIn',
+    icon: LinkedIn,
+    link: 'https://www.linkedin.com/in/drewloomer/'
+  },
+  {
+    text: 'Twitter',
+    icon: Twitter,
+    link: 'https://twitter.com/drewloomer'
+  },
+  {
+    text: 'GitHub',
+    icon: GitHub,
+    link: 'https://github.com/drewloomer'
+  },
+  {
+    text: 'Medium',
+    icon: Medium,
+    link: 'https://medium.com/@drewloomer'
+  }
+];
 
 const List = styled.ul<StickyNavMenuProps & StickyNavContext>`
   background: ${props => props.theme.colors.gray._1000};
@@ -101,7 +140,7 @@ const ListIcon = styled(Icon)`
   `}
 `;
 
-const StickyNavMenu: FC<StickyNavMenuProps> = ({ items }) => (
+const StickyNavMenu: FC<StickyNavMenuProps> = () => (
   <Consumer>
     {({ ...props }) => (
       <List as="ul" {...props}>

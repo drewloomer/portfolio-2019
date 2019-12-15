@@ -1,29 +1,13 @@
 import React, { FC } from 'react';
-import styled, {
-  keyframes,
-  ThemeProps,
-  css
-} from '../../util/styled-components';
+import styled from '../../util/styled-components';
 import { DrewImg } from './DrewImg';
-import { StickyNavToggle } from './StickyNavToggle';
-import { Breakpoint, Theme } from '../../config/theme';
+import { Toggle } from './Toggle';
+import { Breakpoint } from '../../config/theme';
 import { breakpoint } from '../../util/breakpoint';
 import { Consumer, StickyNavContext } from './Context';
 
-const slideIn = keyframes`
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-`;
-const animateWrapper = (_: ThemeProps<Theme>) => css`
-  animation: ${slideIn} 500ms ease-out;
-`;
-
 const Container = styled.div<StickyNavContext>`
+  align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 3rem;
@@ -39,7 +23,6 @@ const Container = styled.div<StickyNavContext>`
     ${p =>
       p.fixed &&
       `
-      ${animateWrapper}
       box-shadow: ${!p.open ? p.theme.shadows.box : 'none'};
       left: 0;
       top: 0;
@@ -53,11 +36,7 @@ export const NavBar: FC = () => (
     {({ ...props }) => (
       <Container {...props}>
         <DrewImg />
-        <StickyNavToggle
-          id="menuToggle"
-          aria-haspopup="true"
-          aria-controls="navMenu"
-        />
+        <Toggle id="menuToggle" aria-haspopup="true" aria-controls="navMenu" />
       </Container>
     )}
   </Consumer>
