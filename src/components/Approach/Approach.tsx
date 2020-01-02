@@ -39,7 +39,7 @@ export const Approach: FC<ApproachProps> = props => (
       </P>
       <UL as="ul">
         <LI>Front-end architecture</LI>
-        <LI>Design systems/component Libraries</LI>
+        <LI>Design systems/component libraries</LI>
         <LI>Team leadership and transformation</LI>
         <LI>Agile development</LI>
         <LI>Rapid prototyping</LI>

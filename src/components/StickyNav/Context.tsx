@@ -1,11 +1,4 @@
-import React, {
-  createContext,
-  Dispatch,
-  SetStateAction,
-  ReactNode,
-  ReactChild,
-  ReactChildren
-} from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
 
 export interface StickyNavContext {
   open?: boolean;

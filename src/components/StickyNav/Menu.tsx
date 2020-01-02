@@ -85,7 +85,6 @@ const List = styled.ul<StickyNavMenuProps & StickyNavContext>`
   ${breakpoint(Breakpoint.Large)`
     background: transparent;
     box-shadow: none;
-    position: fixed;
     left: 0;
     top: 7rem;
     z-index: 10;

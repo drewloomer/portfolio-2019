@@ -2,7 +2,7 @@ import React, { ReactNode, forwardRef } from 'react';
 import styled from '../../util/styled-components';
 import { Breakpoint } from '../../config/theme';
 import posed from 'react-pose';
-import { breakpoint } from '../../util/breakpoint';
+import { breakpoint, BreakpointConsumer } from '../../util/breakpoint';
 import { Consumer, StickyNavContext } from './Context';
 
 export const WrapperEl = styled(
@@ -16,6 +16,12 @@ export const WrapperEl = styled(
           ease: 'easeOut',
           duration: 250
         }
+      }
+    },
+    open: {
+      y: '0',
+      transition: {
+        duration: 0
       }
     }
   })
@@ -33,24 +39,38 @@ export const WrapperEl = styled(
 
   ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
     left: 0;
-    position: ${p => (p.fixed ? 'fixed' : 'relative')};
+    position: ${p => (p.fixed || p.open ? 'fixed' : 'relative')};
     top: 0;
     width: 100%;
+  `}
+
+  ${breakpoint(Breakpoint.Large)`
+    position: fixed;
   `}
 `;
 
 export const Wrapper = forwardRef<HTMLDivElement, { children: ReactNode }>(
   ({ children }, ref) => (
-    <Consumer>
-      {context => (
-        <WrapperEl
-          {...context}
-          ref={ref}
-          pose={context.fixed ? 'fixed' : 'unfixed'}
-        >
-          {children}
-        </WrapperEl>
+    <BreakpointConsumer>
+      {({ current }) => (
+        <Consumer>
+          {context => (
+            <WrapperEl
+              {...context}
+              ref={ref}
+              pose={
+                context.fixed && current === Breakpoint.Small
+                  ? 'fixed'
+                  : context.open
+                  ? 'open'
+                  : 'unfixed'
+              }
+            >
+              {children}
+            </WrapperEl>
+          )}
+        </Consumer>
       )}
-    </Consumer>
+    </BreakpointConsumer>
   )
 );

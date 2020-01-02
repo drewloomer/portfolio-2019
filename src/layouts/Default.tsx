@@ -6,6 +6,7 @@ import styled, {
 } from '../util/styled-components';
 import StickyNav from '../components/StickyNav/StickyNav';
 import theme from '../config/theme';
+import { BreakpointProvider } from '../util/breakpoint';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text|Raleway&display=swap');
@@ -31,14 +32,16 @@ export interface LayoutProps {
 
 const DefaultLayout: FC<LayoutProps> = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <Fragment>
-      <Reset />
-      <GlobalStyle />
-      <Main>
-        <StickyNav />
-        {children}
-      </Main>
-    </Fragment>
+    <BreakpointProvider>
+      <Fragment>
+        <Reset />
+        <GlobalStyle />
+        <Main>
+          <StickyNav />
+          {children}
+        </Main>
+      </Fragment>
+    </BreakpointProvider>
   </ThemeProvider>
 );
 

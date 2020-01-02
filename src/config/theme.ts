@@ -8,6 +8,12 @@ export enum Breakpoint {
   Large = 1280
 }
 
+export const breakpoints = [
+  Breakpoint.Small,
+  Breakpoint.Medium,
+  Breakpoint.Large
+];
+
 export interface Theme {
   colors: List<List>;
   fonts: List;
