@@ -15,6 +15,7 @@ import Medium from '../../assets/icon/medium.svg';
 export interface NavItem {
   text: string;
   icon: ComponentClass;
+  external?: boolean;
   link: string;
 }
 
@@ -25,11 +26,13 @@ const items: NavItem[] = [
   {
     text: 'Resume',
     icon: Briefcase,
+    external: true,
     link: '#resume'
   },
   {
     text: 'Contact',
     icon: Contact,
+    external: true,
     link: '#contact'
   },
   {
@@ -145,7 +148,11 @@ const StickyNavMenu: FC<StickyNavMenuProps> = () => (
       <List as="ul" {...props}>
         {items.map(({ link, text, icon: SVG }, i) => (
           <ListItem key={i}>
-            <ListLink href={link}>
+            <ListLink
+              href={link}
+              target={external ? '_blank' : '_self'}
+              rel={external ? 'noopener' : ''}
+            >
               <ListIcon color={theme.colors.gray._700}>
                 <SVG />
               </ListIcon>

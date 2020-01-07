@@ -19,8 +19,8 @@ export interface ToolsProps {
 }
 
 export const Tools: FC<ToolsProps> = props => (
-  <Section>
-    <Wrapper {...props}>
+  <Section {...props}>
+    <Wrapper>
       <H2 as="h2">Tools I Use</H2>
       <P>
         Solid foundations in vanilla Javascript, semantic HTML and scalable CSS

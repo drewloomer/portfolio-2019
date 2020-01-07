@@ -7,6 +7,7 @@ import styled, {
 import StickyNav from '../components/StickyNav/StickyNav';
 import theme from '../config/theme';
 import { BreakpointProvider } from '../util/breakpoint';
+import Footer from '../components/Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Crimson+Text|Raleway&display=swap');
@@ -16,6 +17,7 @@ html {
 }
 
 body {
+  color: ${props => props.theme.colors.gray._150};
   font-family: ${props => props.theme.fonts.primary};
   font-size: 2rem;
   line-height: 1.5;
@@ -39,6 +41,7 @@ const DefaultLayout: FC<LayoutProps> = ({ children }) => (
         <Main>
           <StickyNav />
           {children}
+          <Footer />
         </Main>
       </Fragment>
     </BreakpointProvider>

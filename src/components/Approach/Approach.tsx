@@ -22,8 +22,8 @@ export interface ApproachProps {
 }
 
 export const Approach: FC<ApproachProps> = props => (
-  <Section>
-    <Wrapper {...props} type={WrapperType.Dark}>
+  <Section {...props}>
+    <Wrapper type={WrapperType.Dark}>
       <H2 as="h2">My approach</H2>
       <P>
         I’ve worn many hats in my 15+ years as a software developer and
