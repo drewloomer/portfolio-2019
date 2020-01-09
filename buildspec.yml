@@ -7,11 +7,11 @@ phases:
       - 'touch .npmignore'
   pre_build:
     commands:
-      - 'npm ci'
+      - 'yarn install'
   build:
     commands:
-      - 'npm run test'
-      - 'npm run build'
+      - 'yarn test'
+      - 'yarn build'
 artifacts:
   base-directory: public
   files:
