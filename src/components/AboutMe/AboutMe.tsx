@@ -2,6 +2,9 @@ import React, { FC } from 'react';
 import styled from '../../util/styled-components';
 import { Wrapper, WrapperType } from '../Wrapper';
 import { Heading, Content, Caption } from '../Text';
+import husband from '../../assets/husband.jpg';
+import nerd from '../../assets/nerd.jpg';
+import flanders from '../../assets/flanders.jpg';
 
 const Section = styled.section``;
 
@@ -20,7 +23,7 @@ const Photos = styled.ul`
 
 const Photo = styled.li`
   display: block;
-  flex: 1 1 auto;
+  flex: 1 1 100%;
   margin: 1rem;
   text-align: center;
 
@@ -43,7 +46,7 @@ export interface AboutMeProps {
 }
 
 export const AboutMe: FC<AboutMeProps> = props => (
-  <Section {...props}>
+  <Section {...props} id="about-me">
     <Wrapper type={WrapperType.Dark}>
       <H2 as="h2">About Me</H2>
       <P>
@@ -68,15 +71,15 @@ export const AboutMe: FC<AboutMeProps> = props => (
           <Caption>Dad</Caption>
         </Photo>
         <Photo>
-          <Circle src="https://via.placeholder.com/300.png" />
+          <Circle src={husband} />
           <Caption>Husband</Caption>
         </Photo>
         <Photo>
-          <Circle src="https://via.placeholder.com/300.png" />
+          <Circle src={nerd} />
           <Caption>Nerd</Caption>
         </Photo>
         <Photo>
-          <Circle src="https://via.placeholder.com/300.png" />
+          <Circle src={flanders} />
           <Caption>Ned Flanders</Caption>
         </Photo>
       </Photos>

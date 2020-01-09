@@ -32,20 +32,22 @@ export interface LayoutProps {
   children: ReactNode;
 }
 
-const DefaultLayout: FC<LayoutProps> = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <BreakpointProvider>
-      <Fragment>
-        <Reset />
-        <GlobalStyle />
-        <Main>
-          <StickyNav />
-          {children}
-          <Footer />
-        </Main>
-      </Fragment>
-    </BreakpointProvider>
-  </ThemeProvider>
-);
+const DefaultLayout: FC<LayoutProps> = ({ children }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <BreakpointProvider>
+        <Fragment>
+          <Reset />
+          <GlobalStyle />
+          <Main>
+            <StickyNav />
+            {children}
+            <Footer />
+          </Main>
+        </Fragment>
+      </BreakpointProvider>
+    </ThemeProvider>
+  );
+};
 
 export default DefaultLayout;

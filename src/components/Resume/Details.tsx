@@ -40,8 +40,8 @@ export interface DetailsProps {
 export const Details: FC<DetailsProps> = ({ open, content }) => (
   <Container pose={open ? 'open' : 'closed'}>
     <List as="ul">
-      {content.map(c => (
-        <ListItem>{c}</ListItem>
+      {content.map((c, i) => (
+        <ListItem key={i}>{c}</ListItem>
       ))}
     </List>
   </Container>

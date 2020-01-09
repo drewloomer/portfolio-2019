@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import DefaultLayout from '../layouts/Default';
 import { Masthead } from '../components/Masthead/Masthead';
 import { Approach } from '../components/Approach/Approach';
@@ -8,14 +8,18 @@ import Brands from '../components/Brands/Brands';
 import Resume from '../components/Resume/Resume';
 import Contact from '../components/Contact/Contact';
 
-export default () => (
-  <DefaultLayout>
-    <Masthead />
-    <Approach />
-    <Tools />
-    <AboutMe />
-    <Brands />
-    <Resume />
-    <Contact />
-  </DefaultLayout>
-);
+const Page: FC = () => {
+  return (
+    <DefaultLayout>
+      <Masthead />
+      <Approach />
+      <Tools />
+      <AboutMe />
+      <Brands />
+      <Resume />
+      <Contact />
+    </DefaultLayout>
+  );
+};
+
+export default Page;

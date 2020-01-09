@@ -106,7 +106,7 @@ const ListImage = styled.div`
 export const BrandsList: FC<BrandsListProps> = ({ ...props }) => (
   <List {...props}>
     {items.map(({ text, logo: Logo }) => (
-      <ListItem title={text}>
+      <ListItem title={text} key={text}>
         <ListImage>
           <Logo />
         </ListImage>

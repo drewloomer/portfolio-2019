@@ -22,7 +22,7 @@ export interface ApproachProps {
 }
 
 export const Approach: FC<ApproachProps> = props => (
-  <Section {...props}>
+  <Section {...props} id="approach">
     <Wrapper type={WrapperType.Dark}>
       <H2 as="h2">My approach</H2>
       <P>

@@ -5,12 +5,21 @@ import React, {
   useRef,
   MutableRefObject,
   useEffect,
-  DependencyList
+  DependencyList,
+  Dispatch,
+  SetStateAction
 } from 'react';
 
-export const useScrollPosition = (deps: DependencyList = []) => {
-  const [[x, y], setPosition] = useState([window.scrollX, window.scrollY]);
+export const useScrollPosition = (
+  setClearFixed: (_: boolean) => void = () => {},
+  deps: DependencyList = []
+) => {
+  const [[x, y], setPosition] =
+    typeof window !== 'undefined'
+      ? useState([window.scrollX, window.scrollY])
+      : useState([0, 0]);
   const check = (): void => {
+    setClearFixed(false);
     setPosition([window.scrollX, window.scrollY]); // @todo: make this dynamic
   };
   useLayoutEffect(() => {
@@ -37,7 +46,7 @@ export const useRefDimensions = (
 export const useScrolledBack = (deps: DependencyList = []) => {
   const [scrollHistory, setScrollHistory] = useState<number[]>([]);
   const [isScrolledBack, setIsScrolledBack] = useState<boolean>();
-  const [_, y] = useScrollPosition(deps);
+  const [_, y] = useScrollPosition(undefined, deps);
   useEffect(() => {
     setScrollHistory(scrollHistory.concat([y]).slice(-5));
     setIsScrolledBack(
@@ -53,9 +62,10 @@ export const useScrolledBack = (deps: DependencyList = []) => {
 
 export const useFixedOnScrollBack = (
   ref: MutableRefObject<HTMLElement>
-): boolean => {
-  const [_, y] = useScrollPosition();
+): [boolean, Dispatch<SetStateAction<boolean>>] => {
+  const [clearFixed, setClearFixed] = useState(false);
+  const [_, y] = useScrollPosition(setClearFixed);
   const [__, height] = useRefDimensions(ref, [y]);
   const scrolledBack = useScrolledBack();
-  return y > height && scrolledBack;
+  return [!clearFixed && y > height && scrolledBack, setClearFixed];
 };

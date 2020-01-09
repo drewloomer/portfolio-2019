@@ -19,7 +19,7 @@ export interface BrandsProps {
 }
 
 export const Brands: FC<BrandsProps> = props => (
-  <Section>
+  <Section id="brands">
     <Wrapper {...props}>
       <H2 as="h2">Brands I’ve worked with</H2>
       <P>

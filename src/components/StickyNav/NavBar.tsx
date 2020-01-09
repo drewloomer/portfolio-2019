@@ -29,6 +29,12 @@ const Container = styled.div<StickyNavContext>`
       width: 100%;
     `}
   `}
+
+  ${breakpoint(Breakpoint.Medium, Breakpoint.Large)`
+    position: fixed;
+    right: 0;
+    top: 0;
+  `}
 `;
 
 export const NavBar: FC = () => (

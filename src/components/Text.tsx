@@ -22,7 +22,7 @@ export const Content = styled.p`
   margin-bottom: 2rem;
 `;
 
-export const Caption = styled.caption`
+export const Caption = styled.span`
   font-size: 1.25rem;
   line-height: 1.6;
 `;

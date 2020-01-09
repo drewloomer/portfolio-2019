@@ -89,7 +89,7 @@ const ListLink = styled.a`
 export const ToolsList: FC<ToolsListProps> = ({ ...props }) => (
   <List {...props}>
     {items.map(({ text, logo: Logo, link }) => (
-      <ListItem>
+      <ListItem key={link}>
         <ListLink href={link} target="_blank" rel="noopener">
           <Logo />
           {text}

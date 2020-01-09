@@ -11,11 +11,12 @@ import LinkedIn from '../../assets/icon/linkedin.svg';
 import Twitter from '../../assets/icon/twitter.svg';
 import GitHub from '../../assets/icon/github.svg';
 import Medium from '../../assets/icon/medium.svg';
+import { MenuLink } from './MenuLink';
 
 export interface NavItem {
   text: string;
   icon: ComponentClass;
-  external?: boolean;
+  internal?: boolean;
   link: string;
 }
 
@@ -26,13 +27,13 @@ const items: NavItem[] = [
   {
     text: 'Resume',
     icon: Briefcase,
-    external: true,
+    internal: true,
     link: '#resume'
   },
   {
     text: 'Contact',
     icon: Contact,
-    external: true,
+    internal: true,
     link: '#contact'
   },
   {
@@ -79,17 +80,19 @@ const List = styled.ul<StickyNavMenuProps & StickyNavContext>`
     max-height: ${props => (props.open ? '60rem' : '0')};
     opacity: ${props => (props.open ? '1' : '0')};
     padding-top: 10rem;
+    position: fixed;
     right: 1rem;
     top: 2rem;
     transition: max-height 150ms ease-out, opacity 100ms linear;
-    z-index: 0;
+    z-index: -5;
   `}
 
   ${breakpoint(Breakpoint.Large)`
     background: transparent;
     box-shadow: none;
-    left: 0;
+    left: 50vw;
     top: 7rem;
+    transform: translateX(43rem);
     z-index: 10;
   `}
 `;
@@ -114,24 +117,7 @@ const ListItem = styled.li`
     margin-bottom: 1.5rem;
   `}
 `;
-const ListLink = styled.a`
-  color: inherit;
-  display: flex;
-  justify-content: center;
-  transition: color 100ms linear;
 
-  &:hover {
-    color: ${props => props.theme.colors.gray._200};
-  }
-
-  ${breakpoint(Breakpoint.Medium)`
-    padding: 0 5rem;
-  `}
-
-  ${breakpoint(Breakpoint.Large)`
-    justify-content: flex-start;
-  `}
-`;
 const ListIcon = styled(Icon)`
   height: 2rem;
   margin-right: 1rem;
@@ -146,18 +132,14 @@ const StickyNavMenu: FC<StickyNavMenuProps> = () => (
   <Consumer>
     {({ ...props }) => (
       <List as="ul" {...props}>
-        {items.map(({ link, text, icon: SVG }, i) => (
+        {items.map(({ link, text, internal, icon: SVG }, i) => (
           <ListItem key={i}>
-            <ListLink
-              href={link}
-              target={external ? '_blank' : '_self'}
-              rel={external ? 'noopener' : ''}
-            >
+            <MenuLink link={link} internal={internal}>
               <ListIcon color={theme.colors.gray._700}>
                 <SVG />
               </ListIcon>
               {text}
-            </ListLink>
+            </MenuLink>
           </ListItem>
         ))}
       </List>

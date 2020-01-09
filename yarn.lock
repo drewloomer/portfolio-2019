@@ -3993,6 +3993,15 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+document-offset@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/document-offset/-/document-offset-1.0.4.tgz#7345b819cdfef2bb45c63ce13056416063b70085"
+  integrity sha1-c0W4Gc3+8rtFxjzhMFZBYGO3AIU=
+  dependencies:
+    dom-support "*"
+    get-document "1.0.0"
+    within-element "0.1.0"
+
 dom-converter@^0.2:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.2.0.tgz#6721a9daee2e293682955b6afe416771627bb768"
@@ -4014,6 +4023,13 @@ dom-serializer@0:
   dependencies:
     domelementtype "^2.0.1"
     entities "^2.0.0"
+
+dom-support@*:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/dom-support/-/dom-support-0.0.2.tgz#0e129764ffa5e203d8ab5839e2e92dc2ae14ef7c"
+  integrity sha1-DhKXZP+l4gPYq1g54uktwq4U73w=
+  dependencies:
+    domready "*"
 
 dom-walk@^0.1.0:
   version "0.1.1"
@@ -4048,6 +4064,11 @@ domhandler@^2.3.0:
   integrity sha512-JiK04h0Ht5u/80fdLMCEmV4zkNh2BcoMFBmZ/91WtYZ8qVXSKjiw7fXMgFPnHcSZgOo3XdinHvmnDUeMf5R4wA==
   dependencies:
     domelementtype "1"
+
+domready@*:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/domready/-/domready-1.0.8.tgz#91f252e597b65af77e745ae24dd0185d5e26d58c"
+  integrity sha1-kfJS5Ze2Wvd+dFriTdAYXV4m1Yw=
 
 domutils@1.5.1:
   version "1.5.1"
@@ -5468,6 +5489,11 @@ get-caller-file@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
+
+get-document@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/get-document/-/get-document-1.0.0.tgz#4821bce66f1c24cb0331602be6cb6b12c4f01c4b"
+  integrity sha1-SCG85m8cJMsDMWAr5strEsTwHEs=
 
 get-port@^3.0.0:
   version "3.2.0"
@@ -12155,6 +12181,11 @@ widest-line@^2.0.0:
   integrity sha512-Ba5m9/Fa4Xt9eb2ELXt77JxVDV8w7qQrH0zS/TWSJdLyAwQjWoOzpzj5lwVftDz6n/EOu3tNACS84v509qwnJA==
   dependencies:
     string-width "^2.1.1"
+
+within-element@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/within-element/-/within-element-0.1.0.tgz#b610be314fb588bf21d7bd733906e437f30e2b95"
+  integrity sha1-thC+MU+1iL8h171zOQbkN/MOK5U=
 
 wordwrap@~0.0.2:
   version "0.0.3"

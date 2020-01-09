@@ -82,13 +82,13 @@ export interface ContactProps {
 }
 
 export const Contact: FC<ContactProps> = props => (
-  <Section {...props}>
+  <Section {...props} id="contact">
     <Wrapper>
       <H2 as="h2">Contact me</H2>
       <P>Drop me a line, give me a call or find me around the web.</P>
       <UL as="ul">
         {items.map(({ link, text, icon: SVG }, i) => (
-          <LI>
+          <LI key={text}>
             <A href={link} target="_blank" rel="noopener">
               <SVG />
               {text}

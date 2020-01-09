@@ -12,14 +12,18 @@ const Nav = styled.nav`
   ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
     height: 13rem;
   `}
+
+  ${breakpoint(Breakpoint.Medium, Breakpoint.Large)`
+    height: 11rem;
+  `}
 `;
 
 const StickyNav: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const fixed = useFixedOnScrollBack(ref);
+  const [fixed, setClearFixed] = useFixedOnScrollBack(ref);
   return (
-    <Provider value={{ open, fixed, setOpen }}>
+    <Provider value={{ open, fixed, setOpen, setClearFixed }}>
       <Nav>
         <Wrapper ref={ref}>
           <NavBar />

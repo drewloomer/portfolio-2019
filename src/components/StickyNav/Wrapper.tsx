@@ -42,6 +42,10 @@ export const WrapperEl = styled(
     position: ${p => (p.fixed || p.open ? 'fixed' : 'relative')};
     top: 0;
     width: 100%;
+    `}
+
+  ${breakpoint(Breakpoint.Medium, Breakpoint.Large)`
+    transform: none !important;
   `}
 
   ${breakpoint(Breakpoint.Large)`
@@ -61,7 +65,7 @@ export const Wrapper = forwardRef<HTMLDivElement, { children: ReactNode }>(
               pose={
                 context.fixed && current === Breakpoint.Small
                   ? 'fixed'
-                  : context.open
+                  : context.open && current === Breakpoint.Small
                   ? 'open'
                   : 'unfixed'
               }

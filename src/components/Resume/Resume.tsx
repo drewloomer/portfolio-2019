@@ -12,10 +12,10 @@ const positions: ResumePosition[] = [
     location: 'Addison, Texas',
     startDate: new Date(2018, 2, 1),
     details: [
-      'Fugiat in duis non Lorem do anim mollit Lorem amet officia cupidatat. Dolore qui laborum reprehenderit et mollit in minim consequat sint voluptate labore officia reprehenderit. Consequat sint consequat laborum dolor labore laboris. Ad incididunt Lorem sunt sit esse laboris excepteur fugiat.',
-      'Minim fugiat anim sint esse elit tempor cillum ut. Ex et sunt sint dolore adipisicing ea aliquip. Proident Lorem nostrud pariatur occaecat nisi ea aute aliquip id minim dolore ex non anim. Amet mollit adipisicing ad velit consequat in.',
-      'Cillum laborum ad cupidatat aute exercitation commodo ut voluptate nostrud veniam tempor officia cupidatat proident. Sunt culpa aute aliquip amet irure in deserunt ex labore. Labore est nulla proident duis commodo sint laboris dolore aliqua eiusmod. Excepteur minim dolor commodo culpa minim sint quis ea qui excepteur incididunt.',
-      'Est ipsum ipsum culpa dolor occaecat est ex aute id sint minim commodo et nulla. Qui nulla deserunt velit pariatur veniam elit id deserunt commodo commodo non occaecat reprehenderit. Nulla voluptate cillum mollit consectetur dolore in tempor veniam. Quis qui est et eu fugiat reprehenderit adipisicing culpa minim exercitation.'
+      'Lead development efforts on over $5MM of development work, delivering successful, on time outcomes for multiple clients',
+      'Developed standardized role definitions and a performance evaluation tool to align internal stakeholders to well-defined career paths',
+      'Created new tool for estimating work to ensure accurate planning and messaging during the sales and delivery processes',
+      'Coordinated staffing of developers and architects across all projects and clients, with a focus on proactively combating "burn out"'
     ]
   },
   {
@@ -25,8 +25,8 @@ const positions: ResumePosition[] = [
     startDate: new Date(2017, 1, 1),
     endDate: new Date(2018, 2, 1),
     details: [
-      'Spearheaded information architecture and UI component library creation for the expansion of dealer platform handling over $500 million in loan originations',
-      'Lead and trained team of backend developers in modern front-end practices with Angular 4, Redux and Sass during full re-architecture of foundational sales tool',
+      'Spearheaded information architecture and UI component library creation for the expansion of dealer platform handling over $500MM in loan originations',
+      'Trained team of backend developers in modern front-end practices with Angular 4, Redux and Sass during full re-architecture of foundational sales tool',
       'Constructed high-fidelity prototypes of new dealer tools to validate functionality enhancements with actual users, reducing cost and time to market for new features',
       'Championed Agile methodologies to foster collaboration and transparency between design, development and product teams'
     ]
@@ -101,7 +101,7 @@ export interface ResumeProps {
 
 // @todo: links
 export const Resume: FC<ResumeProps> = props => (
-  <Section {...props}>
+  <Section {...props} id="resume">
     <Wrapper type={WrapperType.Dark}>
       <H2 as="h2">My Experience</H2>
       <P>
@@ -109,7 +109,7 @@ export const Resume: FC<ResumeProps> = props => (
         <Link href="">.pdf</Link> or <Link href="">.docx</Link>.
       </P>
       {positions.map(position => (
-        <Position {...position} />
+        <Position {...position} key={position.company + position.title} />
       ))}
     </Wrapper>
   </Section>

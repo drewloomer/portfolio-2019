@@ -53,7 +53,7 @@ export const Masthead: FC<MastheadProps> = props => (
       </H1>
       <P>
         I’m a front-end craftsman focused on making software that matters and
-        tools that empower designers and developers.
+        creating tools that empower users.
       </P>
       <P>
         <Tagline>Let’s build something together.</Tagline>

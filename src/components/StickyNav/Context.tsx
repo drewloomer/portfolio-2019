@@ -4,6 +4,7 @@ export interface StickyNavContext {
   open?: boolean;
   fixed?: boolean;
   setOpen?: Dispatch<SetStateAction<boolean>>;
+  setClearFixed?: Dispatch<SetStateAction<boolean>>;
 }
 
 const { Provider, Consumer } = createContext<StickyNavContext>({
