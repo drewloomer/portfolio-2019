@@ -106,7 +106,14 @@ export const Resume: FC<ResumeProps> = props => (
       <H2 as="h2">My Experience</H2>
       <P>
         If you’re interested in my formal resume, here it is as a{' '}
-        <Link href="">.pdf</Link> or <Link href="">.docx</Link>.
+        <Link href="DrewLoomerResume.pdf" target="_blank">
+          .pdf
+        </Link>{' '}
+        or{' '}
+        <Link href="DrewLoomerResume.docx" target="_blank">
+          .docx
+        </Link>
+        .
       </P>
       {positions.map(position => (
         <Position {...position} key={position.company + position.title} />

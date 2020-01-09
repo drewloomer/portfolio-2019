@@ -14,9 +14,9 @@ const Page: FC = () => {
       <Masthead />
       <Approach />
       <Tools />
-      <AboutMe />
-      <Brands />
       <Resume />
+      <Brands />
+      <AboutMe />
       <Contact />
     </DefaultLayout>
   );

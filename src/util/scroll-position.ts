@@ -1,8 +1,6 @@
-import React, {
-  FC,
+import {
   useState,
   useLayoutEffect,
-  useRef,
   MutableRefObject,
   useEffect,
   DependencyList,
@@ -10,8 +8,11 @@ import React, {
   SetStateAction
 } from 'react';
 
+/**
+ * Track the current scroll position
+ */
 export const useScrollPosition = (
-  setClearFixed: (_: boolean) => void = () => {},
+  onChange: (x: number, y: number) => void = () => {},
   deps: DependencyList = []
 ) => {
   const [[x, y], setPosition] =
@@ -19,7 +20,7 @@ export const useScrollPosition = (
       ? useState([window.scrollX, window.scrollY])
       : useState([0, 0]);
   const check = (): void => {
-    setClearFixed(false);
+    onChange(window.scrollX, window.scrollY);
     setPosition([window.scrollX, window.scrollY]); // @todo: make this dynamic
   };
   useLayoutEffect(() => {
@@ -31,9 +32,12 @@ export const useScrollPosition = (
   return [x, y];
 };
 
+/**
+ * Track the dimensions of a reference element
+ */
 export const useRefDimensions = (
   ref: MutableRefObject<HTMLElement>,
-  deps: DependencyList
+  deps: DependencyList = []
 ) => {
   const [[width, height], setDimensions] = useState([0, 0]);
   useLayoutEffect(() => {
@@ -42,7 +46,10 @@ export const useRefDimensions = (
   return [width, height];
 };
 
-// @todo: should allow for a couple pixels of downward movement after scrolled back
+/**
+ * Monitors scrolling on the window to see if the user has scrolled backwards
+ * @todo: should allow for a couple pixels of downward movement after scrolled back
+ */
 export const useScrolledBack = (deps: DependencyList = []) => {
   const [scrollHistory, setScrollHistory] = useState<number[]>([]);
   const [isScrolledBack, setIsScrolledBack] = useState<boolean>();
@@ -60,11 +67,15 @@ export const useScrolledBack = (deps: DependencyList = []) => {
   return isScrolledBack;
 };
 
+/**
+ * Monitors scrolling on the window and set fixed to true if the user is scrolling back up the page
+ * Allows for the fixed value to be overridden until scrolling starts again by calling setClearFixed
+ */
 export const useFixedOnScrollBack = (
   ref: MutableRefObject<HTMLElement>
 ): [boolean, Dispatch<SetStateAction<boolean>>] => {
   const [clearFixed, setClearFixed] = useState(false);
-  const [_, y] = useScrollPosition(setClearFixed);
+  const [_, y] = useScrollPosition(() => setClearFixed(false));
   const [__, height] = useRefDimensions(ref, [y]);
   const scrolledBack = useScrolledBack();
   return [!clearFixed && y > height && scrolledBack, setClearFixed];

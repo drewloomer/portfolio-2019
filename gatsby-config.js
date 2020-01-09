@@ -24,7 +24,21 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-33763914-1'
+      }
+    }
   ],
   siteMetadata: {
     title: 'Drew Loomer'

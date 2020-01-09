@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import drew from '../assets/drew.jpg';
+import Img from 'gatsby-image';
 import styled from '../util/styled-components';
+import { queryImages } from '../util/query-images';
 
-const Img = styled.img`
+const DrewImg = styled(Img)`
   border-radius: 50%;
   height: 7rem;
   overflow: hidden;
@@ -16,8 +17,15 @@ export interface DrewProps {
   className?: string;
 }
 
-export const Drew: FC<DrewProps> = props => (
-  <Img src={drew} {...props} alt="Headshot of Drew Loomer" />
-);
+export const Drew: FC<DrewProps> = ({ className }) => {
+  const [drew] = queryImages('drew');
+  return (
+    <DrewImg
+      fluid={drew.childImageSharp.fluid}
+      className={className}
+      alt="Headshot of Drew Loomer"
+    />
+  );
+};
 
 export default Drew;

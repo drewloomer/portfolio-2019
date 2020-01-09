@@ -29,10 +29,11 @@ body {
 const Main = styled.main``;
 
 export interface LayoutProps {
+  hideNav?: boolean;
   children: ReactNode;
 }
 
-const DefaultLayout: FC<LayoutProps> = ({ children }) => {
+const DefaultLayout: FC<LayoutProps> = ({ children, hideNav = false }) => {
   return (
     <ThemeProvider theme={theme}>
       <BreakpointProvider>
@@ -40,7 +41,7 @@ const DefaultLayout: FC<LayoutProps> = ({ children }) => {
           <Reset />
           <GlobalStyle />
           <Main>
-            <StickyNav />
+            {!hideNav && <StickyNav />}
             {children}
             <Footer />
           </Main>

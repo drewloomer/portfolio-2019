@@ -1,16 +1,14 @@
 import pose from 'popmotion-pose';
 import { offset } from './element-offset';
 
-const defaultElement =
-  typeof document !== 'undefined' ? document.scrollingElement : null;
+const el = typeof document !== 'undefined' ? document.scrollingElement : null;
 
 export const createScrollTo = ({
-  el = defaultElement as HTMLElement,
   duration = 300
 }: {
   el?: HTMLElement;
   duration?: number;
-}) => {
+} = {}) => {
   if (!el) return () => {};
 
   const poser = pose(el, {

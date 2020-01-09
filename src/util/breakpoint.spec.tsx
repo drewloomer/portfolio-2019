@@ -87,7 +87,7 @@ describe('Breakpoint Utility', () => {
       }
     `;
     const animation = () => css`
-      ${changeColor} 100ms;
+      ${changeColor}
     `;
     const Component = styled.div`
       ${breakpoint(400, 600)`
