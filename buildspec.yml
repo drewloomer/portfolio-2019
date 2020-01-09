@@ -5,16 +5,13 @@ phases:
       nodejs: 12
     commands:
       - 'touch .npmignore'
-      - 'npm install -g gatsby'
   pre_build:
     commands:
-      - 'npm ci --production'
+      - 'npm ci'
   build:
     commands:
-      - 'npm run-script build'
-  post_build:
-    commands:
-      - 'npm run-script deploy'
+      - 'npm run test'
+      - 'npm run build'
 artifacts:
   base-directory: public
   files:
