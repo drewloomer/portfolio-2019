@@ -7,7 +7,7 @@ phases:
       - 'touch .npmignore'
   pre_build:
     commands:
-      - 'yarn install --prod'
+      - 'yarn install'
   build:
     commands:
       - 'yarn test'
