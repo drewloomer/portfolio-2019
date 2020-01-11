@@ -95,7 +95,7 @@ const ListImage = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     position: absolute;
-    width: 100%;
+    width: 85%;
 
     ${breakpoint(Breakpoint.Medium)`
       max-width: 15rem;
