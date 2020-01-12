@@ -11,12 +11,14 @@ const Container = styled.div<StickyNavContext>`
   display: flex;
   justify-content: space-between;
   padding: 3rem;
+  transition: padding 100ms ease-out;
   width: 100%;
 
   ${breakpoint(Breakpoint.Small, Breakpoint.Medium)`
     background: ${p =>
       p.fixed || p.open ? p.theme.colors.gray._1000 : 'transparent'};
     box-sizing: border-box;
+    padding: ${p => (p.fixed ? '1rem 3rem' : '3rem')};
     position: relative;
     z-index: 10;
 

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import DefaultLayout from '../layouts/Default';
 import { Link, Heading, Content } from '../components/Text';
 import styled from '../util/styled-components';
+import { PageHead } from '../components/PageHead/PageHead';
 
 const H1 = styled(Heading)`
   margin-top: 10rem;
@@ -14,6 +15,7 @@ const P = styled(Content)`
 const Page: FC = () => {
   return (
     <DefaultLayout hideNav={true}>
+      <PageHead title="Uh oh." />
       <H1>Uh oh. Something went wrong.</H1>
       <P>
         <Link href="#" onClick={() => window.history.back()}>

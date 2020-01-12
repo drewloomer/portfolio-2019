@@ -19,13 +19,13 @@ const Nav = styled.nav`
 `;
 
 const StickyNav: FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const el = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [fixed, setClearFixed] = useFixedOnScrollBack(ref);
+  const [fixed, setClearFixed] = useFixedOnScrollBack(el);
   return (
     <Provider value={{ open, fixed, setOpen, setClearFixed }}>
       <Nav>
-        <Wrapper ref={ref}>
+        <Wrapper ref={el}>
           <NavBar />
           <StickyNavMenu
             role="menu"

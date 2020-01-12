@@ -7,10 +7,12 @@ import AboutMe from '../components/AboutMe/AboutMe';
 import Brands from '../components/Brands/Brands';
 import Resume from '../components/Resume/Resume';
 import Contact from '../components/Contact/Contact';
+import { PageHead } from '../components/PageHead/PageHead';
 
 const Page: FC = () => {
   return (
     <DefaultLayout>
+      <PageHead />
       <Masthead />
       <Approach />
       <Tools />

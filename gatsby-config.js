@@ -38,6 +38,13 @@ module.exports = {
       options: {
         trackingId: 'UA-33763914-1'
       }
+    },
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: './src/assets/drew.png'
+      }
     }
   ],
   siteMetadata: {
