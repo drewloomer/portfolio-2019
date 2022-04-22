@@ -9,7 +9,8 @@ import SprintLogo from '../../assets/logo/sprint.svg';
 import KraftLogo from '../../assets/logo/kraft.svg';
 import ToyotaLogo from '../../assets/logo/toyota.svg';
 import GMLogo from '../../assets/logo/gm.svg';
-import SabreLogo from '../../assets/logo/sabre.svg';
+import JimmyJohnsLogo from '../../assets/logo/jjs.svg';
+import FiveGuysLogo from '../../assets/logo/fiveguys.svg';
 import { breakpoint } from '../../util/breakpoint';
 import { Breakpoint } from '../../config/theme';
 
@@ -31,6 +32,10 @@ const items: BrandItem[] = [
     logo: MicrosoftLogo
   },
   {
+    text: 'Jimmy John\'s',
+    logo: JimmyJohnsLogo
+  },
+  {
     text: 'CapitalOne',
     logo: CapitalOneLogo
   },
@@ -43,6 +48,10 @@ const items: BrandItem[] = [
     logo: SprintLogo
   },
   {
+    text: 'Five Guys',
+    logo: FiveGuysLogo
+  },
+  {
     text: 'Kraft',
     logo: KraftLogo
   },
@@ -53,10 +62,6 @@ const items: BrandItem[] = [
   {
     text: 'GM',
     logo: GMLogo
-  },
-  {
-    text: 'Sabre',
-    logo: SabreLogo
   }
 ];
 

@@ -2,11 +2,11 @@ import React, { FC, ComponentClass, HTMLAttributes } from 'react';
 import styled from '../../util/styled-components';
 
 import ReactLogo from '../../assets/logo/reactjs.svg';
-import AngularLogo from '../../assets/logo/angular.svg';
 import ReduxLogo from '../../assets/logo/redux.svg';
-import SassLogo from '../../assets/logo/sass.svg';
 import nodeLogo from '../../assets/logo/node.svg';
+import dotnetLogo from '../../assets/logo/dotnet.svg';
 import gitLogo from '../../assets/logo/git.svg';
+import emberLogo from '../../assets/logo/ember.svg';
 import { breakpoint } from '../../util/breakpoint';
 import { Breakpoint } from '../../config/theme';
 
@@ -26,9 +26,14 @@ const items: ToolItem[] = [
     link: 'https://reactjs.org/'
   },
   {
-    text: 'Angular',
-    logo: AngularLogo,
-    link: 'https://angular.io/'
+    text: 'node.js',
+    logo: nodeLogo,
+    link: 'https://nodejs.org/en/'
+  },
+  {
+    text: '.NET',
+    logo: dotnetLogo,
+    link: 'https://dotnet.microsoft.com/en-us/'
   },
   {
     text: 'Redux',
@@ -36,19 +41,14 @@ const items: ToolItem[] = [
     link: 'https://redux.js.org/'
   },
   {
-    text: 'Sass',
-    logo: SassLogo,
-    link: 'https://sass-lang.com/'
-  },
-  {
-    text: 'node.js',
-    logo: nodeLogo,
-    link: 'https://nodejs.org/en/'
-  },
-  {
     text: 'git',
     logo: gitLogo,
     link: 'https://git-scm.com/'
+  },
+  {
+    text: 'Ember',
+    logo: emberLogo,
+    link: 'https://emberjs.com/'
   }
 ];
 

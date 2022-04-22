@@ -7,30 +7,36 @@ import { breakpoint } from '../../util/breakpoint';
 // @todo: get this from GraphQL
 const otherTools: { text: string; link: string }[] = [
   { text: 'Jest', link: 'https://jestjs.io/' },
+  { text: 'Playwright', link: 'https://playwright.dev/' },
+  { text: 'Mocha', link: 'https://mochajs.org/' },
+  { text: 'Chai', link: 'https://www.chaijs.com/' },
   { text: 'Styled Components', link: 'https://www.styled-components.com' },
+  { text: 'Sass', link: 'https://sass-lang.com/' },
+  { text: 'LESS', link: 'http://lesscss.org/' },
+  { text: 'Stylus', link: 'http://stylus-lang.com/' },
+  { text: 'TeamCity', link: 'https://www.jetbrains.com/teamcity/' },
+  { text: 'Octopus', link: 'https://octopus.com/' },
   { text: 'AWS', link: 'https://aws.amazon.com/' },
   {
     text: 'Azure DevOps',
     link: 'https://azure.microsoft.com/en-us/services/devops/'
   },
   { text: 'Jenkins', link: 'https://jenkins.io/' },
-  { text: 'LESS', link: 'http://lesscss.org/' },
-  { text: 'Stylus', link: 'http://stylus-lang.com/' },
-  { text: 'Sketch', link: 'https://www.sketch.com/' },
-  { text: 'Ember', link: 'https://emberjs.com/' },
-  { text: 'Mocha', link: 'https://mochajs.org/' },
+  { text: 'Capacitor', link: 'https://capacitorjs.com/' },
+  { text: 'Angular', link: 'https://angular.io/' },
+  { text: 'Postgres', link: 'https://www.postgresql.org/' },
   { text: 'MySQL', link: 'https://www.mysql.com/' },
   { text: 'MongoDB', link: 'https://www.mongodb.com/' },
+  { text: 'Vite', link: 'https://vitejs.dev/' },
   { text: 'Webpack', link: 'https://webpack.js.org/' },
   { text: 'Rollup', link: 'https://rollupjs.org/guide/en/' },
   { text: 'Browserify', link: 'http://browserify.org/' },
   { text: 'Gulp', link: 'https://gulpjs.com/' },
   { text: 'Grunt', link: 'https://gruntjs.com/' },
   { text: 'jQuery', link: 'https://jquery.com/' },
+  { text: 'Sketch', link: 'https://www.sketch.com/' },
   { text: 'PHP', link: 'https://www.php.net/' },
-  { text: 'Laravel', link: 'https://laravel.com/' },
-  { text: 'Wordpress', link: 'https://wordpress.org/' },
-  { text: 'Photoshop', link: 'https://www.adobe.com/products/photoshop.html' }
+  { text: 'Laravel', link: 'https://laravel.com/' }
 ];
 
 const OtherToolsList = styled(List)`

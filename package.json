@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "portfolio-2019",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A simple portfolio of Drew Loomer's work",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -55,6 +55,10 @@
     "styled-components": "^4.3.2",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.4"
+  },
+  "engines": {
+    "yarn": "^1.2.1",
+    "node": "^14.19.1"
   },
   "repository": {
     "type": "git",
