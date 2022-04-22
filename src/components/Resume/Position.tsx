@@ -43,8 +43,8 @@ export const Position: FC<PositionProps> = ({
         endDate={endDate}
       />
       <SubHeading as="h3">{title}</SubHeading>
-      <Toggle open={open} setOpen={setOpen} />
-      <Details content={details} open={open} />
+      {details.length ? <Toggle open={open} setOpen={setOpen} /> : null}
+      {details.length ? <Details content={details} open={open} /> : null}
     </PositionWrapper>
   );
 };

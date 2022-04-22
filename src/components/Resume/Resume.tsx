@@ -7,10 +7,26 @@ import { ResumePosition, Position } from './Position';
 // @todo: move this to graphQL
 const positions: ResumePosition[] = [
   {
+    title: 'Staff Engineer',
+    company: 'Olo',
+    location: 'New York, New York',
+    startDate: new Date(2021, 8, 1),
+    details: []
+  },
+  {
+    title: 'Engineering Manager',
+    company: 'Olo',
+    location: 'New York, New York',
+    startDate: new Date(2020, 2, 1),
+    endDate: new Date(2021, 8, 1),
+    details: []
+  },
+  {
     title: 'Director of Technology',
     company: 'projekt202',
     location: 'Addison, Texas',
     startDate: new Date(2018, 2, 1),
+    endDate: new Date(2020, 2, 1),
     details: [
       'Lead development efforts on over $5MM of development work, delivering successful, on time outcomes for multiple clients',
       'Developed standardized role definitions and a performance evaluation tool to align internal stakeholders to well-defined career paths',
