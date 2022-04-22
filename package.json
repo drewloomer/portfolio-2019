@@ -57,8 +57,7 @@
     "typescript": "^3.6.4"
   },
   "engines": {
-    "yarn": "^1.2.1",
-    "node": "^14.19.1"
+    "node": "^12.16.1"
   },
   "repository": {
     "type": "git",
