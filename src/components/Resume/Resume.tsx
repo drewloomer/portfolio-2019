@@ -11,7 +11,10 @@ const positions: ResumePosition[] = [
     company: 'Olo',
     location: 'New York, New York',
     startDate: new Date(2021, 8, 1),
-    details: []
+    details: [
+      'Lead development of hybrid mobile app using CapacitorJS, replacing legacy mobile apps and saving over $2MM in estimated engineering costs',
+      'Pioneered new methodologies for effective end-to-end testing of complex customer workflows, leveraging Playwright to reduce time to deploy new tests'
+    ]
   },
   {
     title: 'Engineering Manager',
@@ -19,7 +22,10 @@ const positions: ResumePosition[] = [
     location: 'New York, New York',
     startDate: new Date(2020, 2, 1),
     endDate: new Date(2021, 8, 1),
-    details: []
+    details: [
+      'Managed multiple teams and projects, successfully stewarding company-wide engineering initiatives and collaborating with Product and Design cross-functionals to deliver new ordering features to end-users',
+      'Played active role in adoption of Agile at Olo, creating training materials and promoting organization-wide improvements by example'
+    ]
   },
   {
     title: 'Director of Technology',

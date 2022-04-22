@@ -35,8 +35,7 @@ const otherTools: { text: string; link: string }[] = [
   { text: 'Grunt', link: 'https://gruntjs.com/' },
   { text: 'jQuery', link: 'https://jquery.com/' },
   { text: 'Sketch', link: 'https://www.sketch.com/' },
-  { text: 'PHP', link: 'https://www.php.net/' },
-  { text: 'Laravel', link: 'https://laravel.com/' }
+  { text: 'PHP', link: 'https://www.php.net/' }
 ];
 
 const OtherToolsList = styled(List)`
