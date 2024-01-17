@@ -2,11 +2,11 @@ import React, { FC, ComponentClass, HTMLAttributes } from 'react';
 import styled from '../../util/styled-components';
 
 import ReactLogo from '../../assets/logo/reactjs.svg';
-import ReduxLogo from '../../assets/logo/redux.svg';
-import nodeLogo from '../../assets/logo/node.svg';
-import dotnetLogo from '../../assets/logo/dotnet.svg';
-import gitLogo from '../../assets/logo/git.svg';
-import emberLogo from '../../assets/logo/ember.svg';
+import TailwindLogo from '../../assets/logo/tailwind.svg';
+import NodeLogo from '../../assets/logo/node.svg';
+import ExpressLogo from '../../assets/logo/express.svg';
+import GitLogo from '../../assets/logo/git.svg';
+import NextLogo from '../../assets/logo/nextjs.svg';
 import { breakpoint } from '../../util/breakpoint';
 import { Breakpoint } from '../../config/theme';
 
@@ -18,37 +18,36 @@ export interface ToolItem {
   link: string;
 }
 
-// @todo: move this to graphQL
 const items: ToolItem[] = [
   {
     text: 'React',
     logo: ReactLogo,
-    link: 'https://reactjs.org/'
+    link: 'https://react.dev/'
+  },
+  {
+    text: 'Next.js',
+    logo: NextLogo,
+    link: 'https://nextjs.org/'
+  },
+  {
+    text: 'Tailwind',
+    logo: TailwindLogo,
+    link: 'https://tailwindcss.com/'
+  },
+  {
+    text: 'Express',
+    logo: ExpressLogo,
+    link: 'https://expressjs.com/'
   },
   {
     text: 'node.js',
-    logo: nodeLogo,
+    logo: NodeLogo,
     link: 'https://nodejs.org/en/'
   },
   {
-    text: '.NET',
-    logo: dotnetLogo,
-    link: 'https://dotnet.microsoft.com/en-us/'
-  },
-  {
-    text: 'Redux',
-    logo: ReduxLogo,
-    link: 'https://redux.js.org/'
-  },
-  {
     text: 'git',
-    logo: gitLogo,
+    logo: GitLogo,
     link: 'https://git-scm.com/'
-  },
-  {
-    text: 'Ember',
-    logo: emberLogo,
-    link: 'https://emberjs.com/'
   }
 ];
 

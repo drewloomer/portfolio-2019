@@ -4,6 +4,8 @@ import styled from '../../util/styled-components';
 import { Wrapper, WrapperType } from '../Wrapper';
 import { Heading, Content, Caption } from '../Text';
 import { queryImages } from '../../util/query-images';
+import { breakpoint } from '../../util/breakpoint';
+import { Breakpoint } from '../../config/theme';
 
 const Section = styled.section``;
 
@@ -15,21 +17,31 @@ const H2 = styled(Heading)`
 
 const P = styled(Content)``;
 
+const B = styled.b`
+  font-weight: bold;
+`;
+
 const Photos = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   margin: -1rem;
 `;
 
 const Photo = styled.li`
   display: block;
-  flex: 1 1 100%;
-  margin: 1rem;
+  flex: 0 0 auto;
   text-align: center;
+  padding: 1rem;
+  width: calc(50% - 2rem);
 
   caption {
     display: block;
     margin-top: 1rem;
   }
+
+  ${breakpoint(Breakpoint.Medium)`
+    width: calc(25% - 2rem);
+  `}
 `;
 
 const Circle = styled(Img)`
@@ -46,7 +58,7 @@ export interface AboutMeProps {
 
 export const AboutMe: FC<AboutMeProps> = props => {
   const [dad, husband, nerd, flanders] = queryImages(
-    'dad',
+    'girls',
     'husband',
     'nerd',
     'flanders'
@@ -56,19 +68,24 @@ export const AboutMe: FC<AboutMeProps> = props => {
       <Wrapper type={WrapperType.Dark}>
         <H2 as="h2">About Me</H2>
         <P>
-          I’m a hands-on front-end architect who sees both the big picture and
-          fine details. I love exploring new technologies and know how to
-          balance them with battle-tested alternatives. I pride myself on
-          solving the business problems of today without sacrificing the
-          scalability tomorrow may need.
+          I’m a hands-on front-end architect with full-stack experience and a
+          passion for leadership. I love exploring new technologies and know how
+          to balance them with battle-tested alternatives, seeing both the big
+          picture and fine details. I pride myself on solving the business
+          problems of today without sacrificing the scalability and testability
+          tomorrow will need.
         </P>
         <P>
-          I’ve lead teams of designers and developers in delivering over $15MM
+          I’ve lead teams of designers and developers in delivering over $25MM
           in complex software. I work closely with product owners and UX
-          designers to translate business requirements into clear development
-          tasks. I leverage my SCRUM certification and practical Agile knowledge
-          to keep projects focused on solving real user problems, realizing
-          designs as code and minimizing technical debt.
+          partners to translate business requirements into clear development
+          tasks. I leverage my project management experience to keep teams
+          focused on solving real user and business problems, translating
+          designs into code and minimizing technical debt.{' '}
+          <B>
+            I can lead by example, or step back to provide technical oversight
+            and mentorship.
+          </B>
         </P>
         <P>I’m a remote worker, beard wearer, record collector and dad.</P>
         <Photos as="ul">
@@ -80,10 +97,7 @@ export const AboutMe: FC<AboutMeProps> = props => {
             <Caption>Husband</Caption>
           </Photo>
           <Photo>
-            <Circle
-              fluid={dad.childImageSharp.fluid}
-              alt="Drew with his daughters"
-            />
+            <Circle fluid={dad.childImageSharp.fluid} alt="Drew's daughters" />
             <Caption>Dad</Caption>
           </Photo>
           <Photo>

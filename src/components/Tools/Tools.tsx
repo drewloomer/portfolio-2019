@@ -32,7 +32,8 @@ export const Tools: FC<ToolsProps> = props => (
       <P>Here are some tools I’ve been using recently:</P>
       <ToolsList />
       <P>
-        And here are some others that aren't glamorous enough to merit an icon:
+        And here are some others that either accentuate the gray in my beard or
+        aren't glamorous enough to merit an icon:
       </P>
       <OtherTools />
     </Wrapper>

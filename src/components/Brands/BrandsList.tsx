@@ -11,6 +11,8 @@ import ToyotaLogo from '../../assets/logo/toyota.svg';
 import GMLogo from '../../assets/logo/gm.svg';
 import JimmyJohnsLogo from '../../assets/logo/jjs.svg';
 import FiveGuysLogo from '../../assets/logo/fiveguys.svg';
+import SwaLogo from '../../assets/logo/swa.svg';
+import SabreLogo from '../../assets/logo/sabre.svg';
 import { breakpoint } from '../../util/breakpoint';
 import { Breakpoint } from '../../config/theme';
 
@@ -21,7 +23,6 @@ export interface BrandItem {
   logo: ComponentClass;
 }
 
-// @todo: move this to graphQL
 const items: BrandItem[] = [
   {
     text: 'Google',
@@ -32,7 +33,7 @@ const items: BrandItem[] = [
     logo: MicrosoftLogo
   },
   {
-    text: 'Jimmy John\'s',
+    text: "Jimmy John's",
     logo: JimmyJohnsLogo
   },
   {
@@ -62,6 +63,14 @@ const items: BrandItem[] = [
   {
     text: 'GM',
     logo: GMLogo
+  },
+  {
+    text: 'Southwest',
+    logo: SwaLogo
+  },
+  {
+    text: 'Sabre',
+    logo: SabreLogo
   }
 ];
 

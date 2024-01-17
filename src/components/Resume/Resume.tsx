@@ -4,13 +4,24 @@ import { Wrapper, WrapperType } from '../Wrapper';
 import { Heading, Content, Link } from '../Text';
 import { ResumePosition, Position } from './Position';
 
-// @todo: move this to graphQL
 const positions: ResumePosition[] = [
+  {
+    title: 'Staff Engineer',
+    company: 'Curology',
+    location: 'San Francisco, California',
+    startDate: new Date(2022, 10, 1),
+    details: [
+      'design system/react',
+      'product service/express',
+      'next/frontend monorepo'
+    ]
+  },
   {
     title: 'Staff Engineer',
     company: 'Olo',
     location: 'New York, New York',
     startDate: new Date(2021, 8, 1),
+    endDate: new Date(2022, 10, 1),
     details: [
       'Lead development of hybrid mobile app using CapacitorJS, replacing legacy mobile apps and saving over $2MM in estimated engineering costs',
       'Pioneered new methodologies for effective end-to-end testing of complex customer workflows, leveraging Playwright to reduce time to deploy new tests'
@@ -104,6 +115,20 @@ const positions: ResumePosition[] = [
       'Developed social media application for regional bank client, resulting in record growth earnings, national press coverage and over 500% increase in Facebook following',
       'Restructured and maintained internal servers, development environments and procedures to improve asset security and reduce agency downtime'
     ]
+  },
+  {
+    title: 'Website Specialist',
+    company: 'West Bloomfield Township Public Library',
+    location: 'West Bloomfield, Michigan',
+    startDate: new Date(2008, 11, 1),
+    endDate: new Date(2010, 2, 1)
+  },
+  {
+    title: 'Freelance Web Developer',
+    company: 'Drewloomer.com LLC',
+    location: 'Michigan',
+    startDate: new Date(2003, 1, 1),
+    endDate: new Date(2010, 2, 1)
   }
 ];
 

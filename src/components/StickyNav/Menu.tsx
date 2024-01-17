@@ -42,11 +42,6 @@ const items: NavItem[] = [
     link: 'https://www.linkedin.com/in/drewloomer/'
   },
   {
-    text: 'Twitter',
-    icon: Twitter,
-    link: 'https://twitter.com/drewloomer'
-  },
-  {
     text: 'GitHub',
     icon: GitHub,
     link: 'https://github.com/drewloomer'

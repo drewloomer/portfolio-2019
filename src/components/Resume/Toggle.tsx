@@ -6,9 +6,9 @@ const StyledLink = styled(Link)<{ open: boolean }>`
   background: none;
   border: none;
   cursor: pointer;
-  margin: ${p => (p.open ? '1.5rem 0' : '1.5rem 0 0')};
+  font-size: 1.5rem;
+  margin: ${p => (p.open ? '1rem 0' : '1rem 0 0')};
   padding: 0;
-  text-decoration: underline;
   transition: margin 100ms;
 `;
 
@@ -24,11 +24,11 @@ export const Toggle: FC<{ open: boolean; setOpen: (_: boolean) => void }> = ({
   >
     {open ? (
       <>
-        Hide Details <span aria-hidden="true"> ≪</span>
+        Hide Details <span aria-hidden="true">⬆</span>
       </>
     ) : (
       <>
-        Show Details<span aria-hidden="true"> ≫</span>
+        Show Details <span aria-hidden="true">⬇</span>
       </>
     )}
   </StyledLink>

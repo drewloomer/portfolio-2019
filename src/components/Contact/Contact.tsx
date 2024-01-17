@@ -5,7 +5,6 @@ import { Heading, Content, Link } from '../Text';
 import Mail from '../../assets/icon/mail.svg';
 import Phone from '../../assets/icon/phone.svg';
 import LinkedIn from '../../assets/icon/linkedin.svg';
-import Twitter from '../../assets/icon/twitter.svg';
 import GitHub from '../../assets/icon/github.svg';
 import Medium from '../../assets/icon/medium.svg';
 
@@ -30,11 +29,6 @@ const items: ContactItem[] = [
     text: 'LinkedIn',
     icon: LinkedIn,
     link: 'https://www.linkedin.com/in/drewloomer/'
-  },
-  {
-    text: 'Twitter',
-    icon: Twitter,
-    link: 'https://twitter.com/drewloomer'
   },
   {
     text: 'GitHub',

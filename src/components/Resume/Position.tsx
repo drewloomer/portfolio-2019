@@ -34,6 +34,7 @@ export const Position: FC<PositionProps> = ({
   ...rest
 }) => {
   const [open, setOpen] = useState(false);
+  const hasDetails = details && details.length;
   return (
     <PositionWrapper {...rest}>
       <Stats
@@ -43,8 +44,12 @@ export const Position: FC<PositionProps> = ({
         endDate={endDate}
       />
       <SubHeading as="h3">{title}</SubHeading>
-      {details.length ? <Toggle open={open} setOpen={setOpen} /> : null}
-      {details.length ? <Details content={details} open={open} /> : null}
+      {hasDetails ? (
+        <>
+          <Toggle open={open} setOpen={setOpen} />
+          <Details content={details} open={open} />
+        </>
+      ) : null}
     </PositionWrapper>
   );
 };

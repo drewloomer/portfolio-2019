@@ -26,23 +26,23 @@ export const Approach: FC<ApproachProps> = props => (
     <Wrapper type={WrapperType.Dark}>
       <H2 as="h2">My approach</H2>
       <P>
-        I’ve worn many hats in my 15+ years as a software developer and
-        consultant, but I strive to embody the{' '}
+        I’ve worn many hats in my 20+ years as a software engineer, leader, and
+        consultant. While my knowledge and experience cover a wide-range of
+        topics, I strive to embody the{' '}
         <Link
           href="https://en.wikipedia.org/wiki/T-shaped_skills"
           target="_blank"
         >
           “t-shaped”
         </Link>{' '}
-        developer. While my knowledge and experience cover a wide-range of
-        topics, I consider myself a specialist in several areas:
+        developer. I consider myself a specialist in several areas:
       </P>
       <UL as="ul">
-        <LI>Front-end architecture</LI>
-        <LI>Design systems/component libraries</LI>
         <LI>Team leadership and transformation</LI>
-        <LI>Agile development</LI>
-        <LI>Rapid prototyping</LI>
+        <LI>Full-stack Javascript development</LI>
+        <LI>Design systems</LI>
+        <LI>Service-oriented architecture</LI>
+        <LI>CI/CD and automation</LI>
       </UL>
     </Wrapper>
   </Section>
