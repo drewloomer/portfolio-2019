@@ -5,6 +5,7 @@ import { Breakpoint } from '../../config/theme';
 import { breakpoint } from '../../util/breakpoint';
 
 const otherTools: { text: string; link: string }[] = [
+  { text: 'pnpm', link: 'https://pnpm.io/' },
   { text: 'GitHub Actions', link: 'https://github.com/features/actions' },
   { text: 'Vite', link: 'https://vitejs.dev/' },
   { text: 'Jest', link: 'https://jestjs.io/' },
@@ -42,12 +43,10 @@ const otherTools: { text: string; link: string }[] = [
   { text: 'MongoDB', link: 'https://www.mongodb.com/' },
   { text: 'Webpack', link: 'https://webpack.js.org/' },
   { text: 'Rollup', link: 'https://rollupjs.org/guide/en/' },
-  { text: 'Browserify', link: 'http://browserify.org/' },
   { text: 'Gulp', link: 'https://gulpjs.com/' },
   { text: 'jQuery', link: 'https://jquery.com/' },
   { text: 'Figma', link: 'https://www.figma.com/' },
-  { text: 'InVision', link: 'https://www.invisionapp.com/' },
-  { text: 'Sketch', link: 'https://www.sketch.com/' }
+  { text: 'InVision', link: 'https://www.invisionapp.com/' }
 ];
 
 const OtherToolsList = styled(List)`

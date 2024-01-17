@@ -11,9 +11,11 @@ const positions: ResumePosition[] = [
     location: 'San Francisco, California',
     startDate: new Date(2022, 10, 1),
     details: [
-      'design system/react',
-      'product service/express',
-      'next/frontend monorepo'
+      'Partnered with UX to define, design, and build a robust design system backed by React components and reusable Tailwind CSS design tokens, providing engineers with a single source of truth for building UIs',
+      'Pioneered new methodologies for building RESTful APIs with Express.js while creating a system for business partners to manage product details, reducing time to market for new products',
+      'Architected new company-wide approach for building UIs with Next.js inside a monorepo, enabling faster development and better end-user performance and SEO',
+      'Provided mentorship and code review for developers of all levels, helping to grow the team and improve the quality of our codebase',
+      'Advocated for and implemented new tools and processes to improve developer experience, including migrating parts of the CI/CD pipeline to GitHub Actions, and adopting Playwright for integration testing'
     ]
   },
   {
@@ -45,7 +47,7 @@ const positions: ResumePosition[] = [
     startDate: new Date(2018, 2, 1),
     endDate: new Date(2020, 2, 1),
     details: [
-      'Lead development efforts on over $5MM of development work, delivering successful, on time outcomes for multiple clients',
+      'Lead development efforts on over $5MM of development work, delivering successful, on-time outcomes for multiple clients',
       'Developed standardized role definitions and a performance evaluation tool to align internal stakeholders to well-defined career paths',
       'Created new tool for estimating work to ensure accurate planning and messaging during the sales and delivery processes',
       'Coordinated staffing of developers and architects across all projects and clients, with a focus on proactively combating "burn out"'
