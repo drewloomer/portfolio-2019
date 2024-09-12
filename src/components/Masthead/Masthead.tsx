@@ -52,8 +52,8 @@ export const Masthead: FC<MastheadProps> = props => (
         <span>My name is Drew.</span>
       </H1>
       <P>
-        I’m a front-end craftsman focused on making software that matters and
-        creating tools that empower users.
+        I’m a front-end-focused, full-stack craftsman focused on making software
+        that matters and creating tools that empower users.
       </P>
       <P>
         <Tagline>Let’s build something together.</Tagline>
