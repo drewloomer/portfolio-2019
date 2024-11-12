@@ -7,9 +7,16 @@ import { ResumePosition, Position } from './Position';
 const positions: ResumePosition[] = [
   {
     title: 'Staff Engineer',
+    company: '10x Genomics',
+    location: 'Pleasanton, California',
+    startDate: new Date(2024, 10, 11)
+  },
+  {
+    title: 'Staff Engineer',
     company: 'Curology',
     location: 'San Francisco, California',
-    startDate: new Date(2022, 10, 1),
+    startDate: new Date(2022, 9, 1),
+    endDate: new Date(2024, 10, 1),
     details: [
       'Partnered with UX to define, design, and build a robust design system backed by React components and reusable Tailwind CSS design tokens, providing engineers with a single source of truth for building UIs',
       'Pioneered new methodologies for building RESTful APIs with Express.js while creating a system for business partners to manage product details, reducing time to market for new products',
@@ -23,7 +30,7 @@ const positions: ResumePosition[] = [
     company: 'Olo',
     location: 'New York, New York',
     startDate: new Date(2021, 8, 1),
-    endDate: new Date(2022, 10, 1),
+    endDate: new Date(2022, 9, 1),
     details: [
       'Lead development of hybrid mobile app using CapacitorJS, replacing legacy mobile apps and saving over $2MM in estimated engineering costs',
       'Pioneered new methodologies for effective end-to-end testing of complex customer workflows, leveraging Playwright to reduce time to deploy new tests'
